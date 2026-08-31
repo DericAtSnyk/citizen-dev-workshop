@@ -1,0 +1,1003 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDEwMDAiIHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjEwMDAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iZm9yZ2QiPgogIDxyZWN0IHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjEwMDAiIGZpbGw9IiMwNzE1MkEiLz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTkuNTMyLDIwLjAwMCkgc2NhbGUoMC4yODc4MjEpIj4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yOS4wODExODEsMzM2OC43Nzk4ODcpIHNjYWxlKDAuMTAwMDAwLC0wLjEwMDAwMCkiCmZpbGw9IiNGRkZGRkYiIHN0cm9rZT0ibm9uZSI+PHBhdGggZD0iTTk2OTEgMzM2NzYgYy0xOCAtNiAtNDUgLTI1IC01OSAtNDEgLTM1IC00MSAtMjggLTE2NSAyMSAtMzcwIDIwCi04MiA0NSAtMjIyIDU3IC0zMTAgMTEgLTg4IDM4IC0yMzAgNjAgLTMxNSAzOSAtMTU3IDYxIC0yODQgODAgLTQ2NSA2IC01NSAxNwotMTU0IDI1IC0yMjAgNTEgLTQwMyA2OCAtODQ5IDQ2IC0xMTg1IC03IC05NiAtMTYgLTI0OSAtMjEgLTM0MCAtMTQgLTI0MyAtOTMKLTg1NyAtMTMwIC0xMDE1IC0xMSAtNDQgLTM1IC0xNjUgLTU1IC0yNzAgLTIwIC0xMDQgLTUwIC0yMzcgLTY3IC0yOTUgLTE3Ci01OCAtNDMgLTE1NSAtNTkgLTIxNiAtMTYgLTYxIC00OSAtMTYwIC03NCAtMjIwIC0yNiAtNjAgLTU3IC0xNTUgLTcxIC0yMTIKLTEzIC01NiAtNDIgLTE0MSAtNjMgLTE5MCAtMjIgLTQ4IC01MiAtMTMwIC02NyAtMTgyIC0xNCAtNTIgLTQ0IC0xMzMgLTY2Ci0xODAgLTIyIC00NyAtNTUgLTEyNCAtNzMgLTE3MiAtMTkgLTQ3IC00MiAtMTAzIC01MyAtMTI1IC0xMSAtMjEgLTM2IC04MwotNTYgLTEzOCAtMjEgLTU1IC01NyAtMTM4IC04MCAtMTg1IC0yNCAtNDcgLTUzIC0xMTYgLTY2IC0xNTUgLTIxIC02NyAtOTMKLTIyNiAtMTgyIC00MDAgLTIyIC00NCAtNjEgLTEyMCAtODYgLTE3MCAtMjQgLTQ5IC02MCAtMTE0IC03OCAtMTQzIC0xOSAtMjkKLTQ1IC03OSAtNTggLTExMiAtMTMgLTMyIC00NSAtODggLTcwIC0xMjMgLTI1IC0zNiAtNDYgLTY4IC00NiAtNzIgMCAtMTUKLTE5MyAtNDAwIC0yMTUgLTQzMSAtMTMgLTE2IC00MyAtNzAgLTY4IC0xMjAgLTI0IC00OSAtNTggLTExMyAtNzYgLTE0MiAtMTcKLTMwIC0zOCAtNjggLTQ1IC04NyAtMTcgLTM5IC0xNzUgLTI4MiAtMjIxIC0zNDAgLTE4IC0yMiAtNDIgLTU5IC01NCAtODIgLTI2Ci01MyAtMTczIC0yNzMgLTIyMSAtMzMzIC0yMCAtMjUgLTU3IC03NiAtODQgLTExNSAtMjYgLTM4IC03MiAtMTA0IC0xMDIgLTE0NQotMjkgLTQxIC03OCAtMTExIC0xMDggLTE1NSAtMzAgLTQ0IC04NyAtMTI1IC0xMjggLTE4MCAtNDAgLTU2IC05NSAtMTMyIC0xMjMKLTE3MCAtMjcgLTM3IC03MCAtOTEgLTk1IC0xMTkgLTQ1IC01MSAtMTUzIC0xOTMgLTI4NSAtMzc2IC0zOCAtNTIgLTExNSAtMTUzCi0xNzAgLTIyMyAtNTUgLTcxIC0xMjIgLTE1NiAtMTQ4IC0xOTAgLTk3IC0xMjUgLTE1NSAtMTk1IC00NTIgLTU0OCAtMzggLTQ2Ci04MyAtMTAxIC05OSAtMTI0IC0xNiAtMjIgLTQzIC01NiAtNjAgLTc2IC0xNyAtMjAgLTUzIC02NSAtODEgLTEwMCAtMjcgLTM1Ci05NyAtMTE4IC0xNTUgLTE4NCAtMjA5IC0yMzkgLTM1NiAtNDE1IC00MzAgLTUxMSAtODAgLTEwNCAtMzQxIC00MjMgLTQ0MQotNTM5IC03MSAtODIgLTExNiAtMTM1IC0yOTkgLTM1MCAtNzQgLTg3IC0xNjYgLTE5NSAtMjA1IC0yMzkgLTgxIC05NCAtMTM4Ci0xNjQgLTE4MCAtMjIxIC0xNiAtMjIgLTc0IC05MyAtMTMwIC0xNTggLTU1IC02NSAtMTIyIC0xNDQgLTE0OCAtMTc1IC0yNwotMzEgLTgzIC0xMDggLTEyNSAtMTcxIC00MiAtNjMgLTk3IC0xNDUgLTEyMiAtMTgxIC0yNSAtMzcgLTg2IC0xMTggLTEzNgotMTgxIC0xMDIgLTEyOCAtMTg1IC0yNDIgLTI1OSAtMzU3IC0yNyAtNDIgLTkzIC0xMzUgLTE0NSAtMjA2IC01MiAtNzEgLTExNwotMTY0IC0xNDUgLTIwNyAtMjcgLTQzIC04NCAtMTI2IC0xMjUgLTE4NCAtNDEgLTU4IC0xMDAgLTE0MyAtMTMwIC0xODkgLTMwCi00NiAtOTggLTE0OCAtMTUxIC0yMjcgLTUzIC03OSAtMTExIC0xNzMgLTEyOSAtMjA5IC0xOCAtMzYgLTQ5IC05MCAtNzAgLTEyMAotMjAgLTMwIC00NyAtNzUgLTYwIC0xMDAgLTEzIC0yNSAtNDQgLTc2IC03MCAtMTE1IC0yNiAtMzggLTYwIC05NSAtNzUgLTEyNQotMTUgLTMwIC0zNyAtNjggLTQ4IC04NCAtNDMgLTYxIC0zMjQgLTYyMCAtMzU4IC03MTAgLTE1IC00MyAtNDIgLTk5IC01OAotMTI1IC0xNiAtMjUgLTM5IC02OSAtNTAgLTk4IC0xMSAtMjkgLTQxIC05NCAtNjcgLTE0NSAtMjYgLTUxIC02MSAtMTMzIC03OQotMTgzIC0xOCAtNDkgLTQ5IC0xMjkgLTY5IC0xNzYgLTE5IC00OCAtNDkgLTEzNyAtNjYgLTE5OCAtMTYgLTYxIC00NCAtMTQyCi02MSAtMTc5IC0xNyAtMzcgLTQ2IC0xMjAgLTY0IC0xODUgLTE5IC02NiAtNTEgLTE2MiAtNzEgLTIxNSAtMTkgLTU0IC00OAotMTQ5IC02NCAtMjEyIC0xNSAtNjMgLTUxIC0xOTQgLTc4IC0yOTAgLTI4IC05NiAtNjUgLTI0OSAtODEgLTM0MCAtMTcgLTkxCi00MiAtMTk5IC01NiAtMjM5IC0xNCAtNDEgLTM0IC0xMjcgLTQ2IC0xOTAgLTExIC02NCAtMzMgLTE4MSAtNDkgLTI2MSAtMTYKLTgwIC0zNCAtMTg2IC00MCAtMjM1IC02IC01MCAtMTcgLTEyNiAtMjUgLTE3MCAtOCAtNDQgLTE5IC0xMzQgLTI1IC0yMDAgLTYKLTY2IC0yMCAtMjAzIC0zMCAtMzA1IC00NCAtNDE2IC01MSAtNTQ5IC01NyAtMTAwMiAtNiAtNDU4IC0yIC01NzEgMzIgLTg2OCA4Ci02OSAyMyAtMjM1IDM1IC0zNzAgMjUgLTMwMyA2MSAtNTY3IDEwNiAtNzcyIDE5IC04NyAzOSAtMTkyIDQ1IC0yMzMgNSAtNDIKMTkgLTEwOCAzMCAtMTQ4IDExIC00MCAzNiAtMTQ2IDU1IC0yMzcgOTggLTQ2NSAxNjkgLTczNCAyNDAgLTkxNSAyMCAtNDkgNDkKLTEzOSA2NSAtMjAwIDM2IC0xMzggMTQ3IC00NjEgMTk5IC01ODAgMTU2IC0zNTggMjYxIC01ODQgMzA5IC02NzAgMTMwIC0yMjgKMTg2IC0zMjMgMjIxIC0zNzUgMjEgLTMwIDU0IC04OSA3NSAtMTMwIDIxIC00MSA1MiAtOTUgNzAgLTEyMCAxOCAtMjUgNDcgLTcwCjY0IC0xMDAgMzMgLTU5IDEyMSAtMTgxIDI5MSAtNDA5IDU4IC03NyAxMzYgLTE4NSAxNzQgLTI0MCAzOCAtNTUgMTE4IC0xNjAKMTc4IC0yMzMgMzE3IC0zODkgMzg2IC00NzQgNDIwIC01MTkgNzAgLTk1IDg2OCAtODg3IDEwMzIgLTEwMjYgMzggLTMyIDEwNAotODggMTQ2IC0xMjQgNDIgLTM3IDE0OCAtMTI0IDIzNiAtMTkzIDg3IC03MCAxNzkgLTE0NCAyMDQgLTE2NSAzOSAtMzIgMTEzCi04NCAzMDUgLTIxMSAyMiAtMTUgMTA1IC03NCAxODUgLTEzMSAxNDAgLTEwMCAyODkgLTE5MSAzNjQgLTIyMyAxOSAtOCA5MQotNDcgMTU4IC04NiA2OCAtMzkgMTg4IC0xMDggMjY4IC0xNTQgODAgLTQ1IDE3MiAtOTkgMjA1IC0xMjAgMjQ0IC0xNTQgNzQ4Ci00MDEgOTA4IC00NDYgODkgLTI0IDE3MyAtNTUgMjY3IC05OCAzNiAtMTYgOTcgLTM5IDEzNSAtNTIgMzkgLTEyIDEwOCAtMzgKMTU1IC01OCA0NyAtMTkgMTM3IC01MSAyMDAgLTcyIDYzIC0yMCAxNTkgLTUzIDIxMiAtNzQgNTQgLTIwIDE1MyAtNDkgMjIwCi02NSA2OCAtMTYgMTU5IC00MSAyMDMgLTU1IDE0MSAtNDQgNjY1IC0xNzQgODEwIC0yMDEgNzcgLTE0IDE4MSAtMzQgMjMwIC00NAoxOTMgLTQxIDUzNSAtNzAgNTk3IC01MiAxMjIgMzYgMTAyIDg3IC05MiAyNDEgLTIyNiAxNzkgLTczMiA3MDggLTg5NSA5MzQKLTEwNCAxNDUgLTI4MyAzNzIgLTM1NCA0NTEgLTIwIDIyIC00NyA1OCAtNjEgODAgLTI3IDQ1IC0xMjYgMTgxIC0xOTQgMjY2Ci0yNCAzMSAtNTkgODIgLTc3IDExNSAtMTggMzIgLTQ5IDg0IC02OSAxMTQgLTIxIDMwIC00NiA3MyAtNTggOTUgLTExIDIyIC00MAo2NyAtNjQgMTAwIC0yNSAzMyAtNTMgNzYgLTYzIDk1IC0xMSAxOSAtNDkgODIgLTg1IDE0MCAtMTI2IDE5OCAtMTQxIDIyNQotMTgyIDMxMCAtMjIgNDcgLTU1IDEwNiAtNzQgMTMyIC0xOSAyNSAtNDcgNzcgLTYzIDExNSAtMTYgMzcgLTQ5IDEwMSAtNzQKMTQyIC0yNiA0MSAtNTYgMTA0IC02OCAxNDAgLTEyIDM2IC00MSAxMDIgLTY1IDE0NiAtMjkgNTQgLTUwIDExMSAtNjQgMTc1Ci0xMSA1MiAtNDEgMTM4IC02NCAxOTAgLTI0IDUyIC01NSAxMzMgLTY5IDE4MCAtMTQgNDcgLTQxIDEyMSAtNjEgMTY1IC0xOSA0NAotNTEgMTQwIC03MSAyMTIgLTE5IDczIC01MSAxNzMgLTcwIDIyMyAtMTkgNTAgLTQ2IDE0OCAtNjEgMjE4IC0xNCA3MCAtNDIKMTY4IC02MCAyMTcgLTE5IDUwIC00OCAxNTMgLTY0IDIzMCAtMTYgNzcgLTQ5IDIzMiAtNzMgMzQ1IC0yNSAxMTMgLTUyIDI1NwotNjEgMzIwIC0zMyAyMzYgLTU1IDQzOSAtNjEgNTU1IC0zIDY2IC0xMiAyMTAgLTIwIDMyMCAtMzYgNTA1IC0zOCA5NTAgLTUKMTI3MCA1IDU1IDE2IDE5OSAyNCAzMjAgMjIgMzMwIDU1IDY1OSA3NiA3NjAgMTAgNTAgMzMgMTU1IDUwIDIzNSAxNyA4MCA0NAoyMTMgNjEgMjk1IDE2IDgzIDQ1IDIxMyA2NCAyOTAgMTkgNzcgNTAgMjA1IDY5IDI4NSA2MyAyNzQgMTg0IDY5MiAyNzcgOTYwCjIyIDYzIDYyIDE3OCA4OCAyNTUgNjIgMTgwIDE3OCA0NjkgMjI5IDU3MSAyMiA0MyA1MiAxMTEgNjcgMTQ5IDE1IDM5IDQyIDk1CjYwIDEyNSAxOSAzMCA0NyA4OSA2NCAxMzIgMTYgNDIgNDggMTA1IDcwIDE0MSAyMiAzNiA1MiA5MCA2NyAxMTkgMzYgNzMgMTUxCjI4MiAxODggMzQzIDE2IDI4IDUxIDg4IDc2IDEzNSA3MSAxMjkgMTYzIDI4MSAyNTggNDI1IDQ3IDcyIDEwOSAxNzEgMTM4IDIyMAoyOCA1MCAxMTUgMTgyIDE5MyAyOTUgNzggMTEzIDE5NyAyODYgMjY1IDM4NSAxMTEgMTYxIDI1MiAzNDEgMzk4IDUwOSA3NCA4NAoxODYgMjIxIDIzOCAyOTEgMTMwIDE3NSAxMjI1IDEyNzQgMTMyMCAxMzI1IDU4IDMxIDc4IC05MSA0NiAtMjgxIC04IC00NiAtMTcKLTEwOSAtMjEgLTEzOSAtNCAtMzAgLTEzIC05MiAtMjEgLTEzOCAtMzAgLTE4MSAtNDIgLTc5MiAtMjQgLTEyODcgOSAtMjYwIDEyCi0yOTEgNjAgLTU5NSAxNiAtMTAyIDM5IC0yNjMgNTAgLTM1OSAyNSAtMjA3IDI1IC0yMTEgOTYgLTQ2MSAxNzkgLTYzMyAyNzcKLTkyMiAzODIgLTExMjUgMTcgLTMzIDQ5IC0xMDMgNzIgLTE1NSAyMyAtNTIgMTA2IC0yMjEgMTg1IC0zNzUgMjAxIC0zOTMgMjE2Ci00MjEgMjY3IC01MDAgMjUgLTM4IDU4IC05NSA3MyAtMTI1IDE1IC0zMCA0NyAtODIgNzAgLTExNSAyMyAtMzMgNTMgLTgwIDY1Ci0xMDUgMzAgLTYwIDEzNiAtMjExIDE5NiAtMjgxIDI3IC0zMCA3MCAtODIgOTYgLTExNSAyNTQgLTMxOSAzNjcgLTQzOSA3NTMKLTgwMyA0MDAgLTM3NyA4NTUgLTg0NCAxMTkxIC0xMjIxIDY2IC03NCAxODggLTIwNyAyNzAgLTI5NSA4MyAtODggMTc1IC0xODcKMjA2IC0yMjAgOTAgLTk4IDI3NSAtMzQ1IDMyOSAtNDQwIDEyIC0yMiAxMTMgLTE3NyAyMjQgLTM0NSAxMTEgLTE2OCAyMTIKLTMyNSAyMjUgLTM1MCAxMiAtMjUgMzMgLTYwIDQ3IC03OCAyOSAtMzggMjcxIC01MjIgMzAxIC02MDIgNTIgLTEzNyAxMzMKLTQwOCAxNTIgLTUxMSAxMiAtNjMgMzcgLTE3NyA1NiAtMjU0IDgwIC0zMjkgOTkgLTYwNSA5MSAtMTM1MCAtNiAtNTcwIC0xNQotNjcyIC05MiAtOTkwIC0xOCAtNzcgLTQzIC0xOTEgLTU1IC0yNTQgLTExIC02MiAtMzYgLTE1NCAtNTYgLTIwNSAtMTkgLTUwCi00NiAtMTMxIC02MCAtMTgxIC0xNCAtNDkgLTQxIC0xMjQgLTYxIC0xNjUgLTE5IC00MSAtNTAgLTExMyAtNjggLTE2MCAtMzUKLTkyIC0xNjEgLTM0MCAtMjA1IC00MDUgLTE1IC0yMiAtMzkgLTY0IC01NCAtOTMgLTE1IC0yOSAtNTUgLTk1IC04OSAtMTQ2Ci0zNCAtNTIgLTk3IC0xNTEgLTE0MSAtMjIwIC00MyAtNzAgLTk1IC0xNDUgLTExNSAtMTY5IC0yMSAtMjMgLTUwIC02NCAtNjYKLTkyIC03OSAtMTM4IC0xNTYgLTIyMyAtNTAwIC01NTEgLTQ1MCAtNDMwIC00OTAgLTQ4MCAtNDEzIC01MjAgODcgLTQ1IDg2MQo2NSAxMTk0IDE3MCA2MSAxOSAxNTMgNDIgMjA1IDUxIDEzMSAyMyAxOTUgNDAgMzM0IDg1IDY2IDIyIDE2MSA0OCAyMTAgNTkgNTAKMTEgMTM1IDM3IDE5MCA1NyA1NSAyMCAxNDEgNDkgMTkwIDY0IDUwIDE1IDE0MCA0OCAyMDAgNzIgNjEgMjUgMTYwIDU5IDIyMAo3NiA2MSAxNyAxNDQgNDYgMTg1IDY1IDQxIDE5IDEwOSA0NyAxNTAgNjEgNDEgMTUgMTA3IDQ1IDE0NSA2NiAzOSAyMSA5NSA0OAoxMjUgNjEgMzAgMTMgODkgNDIgMTMwIDY0IDQxIDIyIDEwMCA1MSAxMzAgNjQgMTMxIDU2IDUyNCAyNTggNjU4IDMzOSAyOSAxOAo5NyA1NSAxNTAgODMgNTMgMjggMTA0IDU3IDExMiA2NCA4IDcgNTYgMzQgMTA3IDU5IDEwNCA1MiAyNDUgMTQ2IDQwOCAyNzIgNjEKNDcgMTQyIDEwMSAxODAgMTIxIDc5IDQwIDEwNyA2MSAzNTggMjYwIDk4IDc5IDE4MSAxNDMgMTg2IDE0MyAxMSAwIDE2MiAxMjkKMjkxIDI0OSA2MyA1OSAxNDkgMTM2IDE5MCAxNzIgNDEgMzUgMTM2IDEyMiAyMTAgMTk0IDc0IDcxIDE5MiAxODAgMjYxIDI0Mgo2OSA2MiAxNzAgMTYxIDIyNCAyMjAgNTQgNTkgMTExIDExOSAxMjYgMTMzIDMwIDI4IDkxIDk2IDE5NCAyMjAgMzkgNDYgMTA4CjEyNiAxNTQgMTc5IDE0MyAxNjUgMjY3IDMyMyAzMTUgNDA1IDI2IDQ0IDkxIDEzOCAxNDUgMjEwIDEzNiAxODMgMjg3IDQxMAozODYgNTgxIDUxIDg5IDEwMSAxNzIgMTk2IDMzMCA5MiAxNTIgNDIzIDg0MSA0NzQgOTg1IDE5IDUyIDQzIDExOCA1NSAxNDUgMTIKMjggNDYgMTE1IDc1IDE5NSAyOSA4MCA2OSAxODEgODggMjI1IDYzIDE0MyAxNTggNDE3IDE5MSA1NTUgMTkgNzQgNjQgMjQ1CjEwMCAzODAgMTAyIDM3MiAxMTIgNDE0IDE0MCA1NjUgMTUgNzcgNDAgMjEwIDU3IDI5NSA1NyAyODggMTA1IDY0OCAxMzkgMTAzMAo2IDY5IDE4IDE3NyAyNiAyNDAgMTAgODEgMTYgMjYzIDIxIDYyMCA3IDY0MSAtNCA5MDggLTUxIDEyMzAgLTE5IDEyOSAtMzkKMjg5IC00NSAzNTUgLTE5IDIwMCAtNDAgMzYzIC02MiA0NTkgLTExIDUwIC0yOSAxMzggLTQwIDE5NiAtNDMgMjI1IC04MSAzOTgKLTEwNCA0NzUgLTEzIDQ0IC0yOSAxMDUgLTM1IDEzNSAtMjQgMTE5IC01MyAyMzAgLTkwIDM0NSAtMjIgNjYgLTQ4IDE2MiAtNTkKMjEzIC0xMSA1MSAtMzggMTM1IC02MCAxODYgLTIyIDUyIC01NCAxNDcgLTcwIDIxMiAtMTcgNjYgLTQ0IDE1NSAtNjEgMTk4Ci0xNyA0NCAtNDYgMTMyIC02NSAxOTggLTIwIDY1IC01MyAxNTggLTc2IDIwNiAtMjIgNDggLTUzIDEzNiAtNzAgMTk1IC0xNiA1OQotNDYgMTQyIC02OCAxODUgLTIxIDQyIC00NiAxMDIgLTU2IDEzMiAtMTAgMzAgLTM4IDk2IC02MyAxNDUgLTI1IDUwIC02MCAxMjYKLTc5IDE3MCAtMTkgNDQgLTQ4IDEwMSAtNjQgMTI3IC0xNyAyNiAtNDYgODQgLTY1IDEzMCAtMTkgNDYgLTQ4IDEwMiAtNjQgMTI1Ci0xNyAyMyAtNDggNzkgLTcwIDEyNSAtMzkgODQgLTg4IDE2NiAtMjExIDM1OCAtMzcgNTggLTkzIDE0NiAtMTI1IDE5NSAtNjQKMTAxIC04NiAxMzQgLTE5MyAyOTAgLTQxIDYxIC05NyAxNDQgLTEyNSAxODUgLTI3IDQxIC02MyA5MSAtODAgMTEwIC0xNyAxOQotNzYgOTggLTEzMCAxNzUgLTU1IDc3IC0xMTkgMTYzIC0xNDIgMTkwIC0yMyAyOCAtNTUgNzcgLTcyIDExMSAtMTcgMzQgLTQyCjc0IC01NSA5MCAtMTMgMTYgLTM5IDUyIC01NyA3OSAtMTkgMjggLTgxIDEwOSAtMTQwIDE4MCAtNTggNzIgLTExNyAxNDYgLTEzMAoxNjUgLTQyIDYyIC0xMjcgMTc0IC0xNTMgMjAzIC0xMDYgMTEzIC0yMjMgLTIgLTI5NiAtMjkxIC0xNyAtNjUgLTQ2IC0xNTkKLTY0IC0yMDggLTE5IC00OSAtNDkgLTEzNCAtNjYgLTE4OCAtMTggLTU1IC00NyAtMTI5IC02NSAtMTY1IC0xOSAtMzYgLTQ1Ci0xMDUgLTYwIC0xNTMgLTE0IC00OCAtNDMgLTExOCAtNjIgLTE1NSAtMjAgLTM3IC00NyAtOTUgLTU5IC0xMjggLTEzIC0zMwotNDkgLTExMiAtODEgLTE3NSAtMzMgLTYzIC02OSAtMTQyIC04MSAtMTc1IC0yMSAtNTcgLTQ4IC0xMDkgLTE1MiAtMjkyIC0yNAotNDMgLTY2IC0xMjEgLTk0IC0xNzMgLTI3IC01MiAtNTcgLTEwNiAtNjYgLTEyMCAtMTAgLTE0IC0zNSAtNTYgLTU2IC05NSAtNjcKLTEyMiAtMjYyIC0zOTUgLTM2NCAtNTEwIC0yMCAtMjMgLTc0IC05NCAtMTIxIC0xNTkgLTEwNCAtMTQ1IC0xNzggLTIzOCAtMzM4Ci00MjYgLTY4IC04MCAtMTU0IC0xODAgLTE5MCAtMjI0IC0xMTQgLTEzNCAtMjc5IC0zMjUgLTQxMSAtNDc1IC0xMjIgLTEzOQotMTczIC0yMDAgLTMzOCAtNDAwIC04MCAtOTggLTE0NCAtMjA1IC0yMzcgLTM5NiAtNzAgLTE0NSAtMTQwIC0yMTEgLTIwNAotMTkxIC0xMSA0IC01MiA0MCAtOTEgODIgLTk2IDEwMSAtMTgwIDI3MiAtMjQxIDQ4OSAtMTUgNTUgLTQ0IDE0NSAtNjQgMjAxCi0yMCA1NSAtNDEgMTM2IC00NiAxODAgLTYgNDMgLTE5IDE0NyAtMzAgMjMxIC00MSAzMDMgLTQ0IDcwMyAtMTAgMTEwMyAyNwozMDkgMzIgMzYyIDQ2IDQ2MCA4IDU4IDI5IDE2NiA0NSAyNDAgMTcgNzQgNDYgMjA3IDY1IDI5NSAxOSA4OCA1MCAyMjEgNjkKMjk2IDE5IDc2IDQyIDE4MSA1MCAyMzUgOSA1NSAzNCAxODUgNTYgMjg5IDYzIDI5OCA2NSAzMDYgMTAzIDU2NSAyMSAxMzUgNDYKMjkyIDU2IDM1MCAxMCA1OCAyMiAxMzcgMjUgMTc1IDMgMzkgMTAgMTAyIDE2IDE0MCAyNyAyMDEgNjUgNjEyIDk1IDEwNDUgMjgKMzg3IDI2IDEyNDYgLTMgMTQ5NSAtMjUgMjA5IC0zNSAzMTggLTU4IDYyNSAtMjMgMzE1IC00MiA0ODEgLTkwIDc4MCAtMjQgMTUxCi00OSAzMTEgLTU1IDM1NSAtNyA0NCAtMjUgMTM0IC00MSAyMDAgLTE2IDY2IC00NyAyMTggLTY5IDMzOCAtMjMgMTIzIC01NwoyNzIgLTc5IDM0MCAtMjIgNjcgLTUxIDE3NiAtNjUgMjQyIC0xNSA2NiAtNDkgMTg4IC03NiAyNzAgLTI3IDgzIC01OCAxODkKLTY4IDIzNiAtMTEgNDggLTM2IDEyNCAtNTcgMTY5IC0yMCA0NiAtNDkgMTQxIC02NSAyMTEgLTE2IDcwIC00MSAxNTYgLTU1CjE5MSAtMTUgMzUgLTQ2IDEyNCAtNzAgMTk5IC0yNCA3NSAtNTkgMTczIC03OSAyMTcgLTIwIDQ1IC00NiAxMjEgLTU3IDE2OQotMTEgNDggLTM0IDEyNCAtNTEgMTY4IC0xNyA0NCAtNDggMTI5IC03MCAxOTAgLTIxIDYwIC01OCAxNDUgLTgyIDE5MCAtMjQgNDQKLTU4IDEyMyAtNzYgMTc1IC0xOCA1MiAtNDggMTIyIC02NiAxNTUgLTE4IDMzIC00NSA5MyAtNTkgMTM0IC0xNSA0MSAtNTEgMTIxCi04MSAxNzggLTMwIDU2IC01NCAxMTAgLTU0IDExOCAwIDIwIC0zNCA4OCAtNzMgMTQ0IC0xNyAyNCAtNDUgODIgLTYzIDEyNwotMTggNDYgLTQ4IDEwNyAtNjcgMTM2IC0yMCAyOSAtNTIgODkgLTcyIDEzMyAtMTkgNDMgLTQ2IDkzIC01OSAxMTAgLTEzIDE2Ci0zMiA0OCAtNDQgNzAgLTIyIDQ0IC0xNDcgMjM2IC0yMTIgMzI5IC0yMyAzMyAtNTggODkgLTc4IDEyNSAtMjAgMzYgLTY4IDExMwotMTA4IDE3MSAtMTg4IDI3OCAtMjc4IDQxNyAtMzA0IDQ3MCAtMTIgMjUgLTM3IDYzIC01NCA4NSAtMTggMjIgLTU4IDc5IC04OQoxMjYgLTMyIDQ3IC04OSAxMjQgLTEyOCAxNzAgLTQwIDQ2IC05NiAxMTYgLTEyNSAxNTQgLTMwIDM5IC04MSAxMDIgLTExNCAxNDAKLTM0IDM5IC05MyAxMTMgLTEzMiAxNjQgLTY0IDg1IC0xMDggMTM4IC0yNjggMzI2IC0xMjYgMTQ5IC0zMTMgMzQ3IC00NjAgNDg5Ci0yNDEgMjMxIC0yNTkgMjQ5IC0zMjUgMzAxIC0zMyAyNyAtMTA1IDg5IC0xNjAgMTM5IC0xMzQgMTIyIC0yNDEgMjE1IC0yOTAKMjUxIC0yMiAxNiAtOTYgNzcgLTE2NCAxMzUgLTE3NSAxNDkgLTIzNCAxOTMgLTQyMSAzMjEgLTkxIDYyIC0xOTYgMTM1IC0yMzUKMTYyIC0zOCAyNiAtMTIyIDgyIC0xODUgMTIzIC02MyA0MSAtMTQ2IDk2IC0xODUgMTIzIC0zOCAyNyAtOTUgNjMgLTEyNSA4MQotMzAgMTggLTczIDQ1IC05NSA2MCAtMjIgMTUgLTY5IDQyIC0xMDUgNjAgLTM2IDE4IC04NCA0NiAtMTA3IDYyIC0yNCAxNiAtOTEKNTAgLTE1MCA3NyAtNjAgMjYgLTEzMyA2MCAtMTYzIDc0IC0xNTEgNzEgLTM2OSAxNjEgLTQ4NSAyMDEgLTcxIDI0IC0xNjYgNTgKLTIxMCA3NSAtNDQgMTYgLTExOCA0MSAtMTY1IDU0IC00NyAxNCAtMTI1IDM5IC0xNzUgNTcgLTE3NiA2NCAtNDM5IDk3IC01MjQKNjZ6Ii8+PHBhdGggZD0iTTIzMTI3IDMxMTUwIGMtMzEgLTM3IC02MSAtMTIzIC05MyAtMjc2IC0xNCAtNjUgLTM2IC0xNDUgLTUwIC0xNzkKLTE0IC0zMyAtNDAgLTEwMyAtNTggLTE1NSAtMTggLTUyIC01MSAtMTMxIC03MyAtMTc1IC0yMyAtNDQgLTU0IC0xMTkgLTcxCi0xNjYgLTMzIC05NCAtMTU3IC0zNTUgLTIwMiAtNDI2IC0xNiAtMjQgLTQzIC04MSAtNjEgLTEyNiAtMTggLTQ1IC00NSAtMTAwCi01OSAtMTIyIC0xNSAtMjIgLTQ0IC03NCAtNjUgLTExNSAtMzcgLTc1IC04MyAtMTQzIC0yMDMgLTMwOCAtMzUgLTQ4IC02OQotOTYgLTc0IC0xMDcgLTExIC0yMSAtOTkgLTEzMyAtMTU3IC0yMDAgLTExNCAtMTMxIC00MzMgLTM5NiAtNTQ2IC00NTIgLTM4Ci0yMCAtODggLTQ4IC0xMTAgLTYzIC0yMiAtMTUgLTY5IC00MiAtMTA1IC02MCAtNzMgLTM2IC0yMzIgLTEzMiAtMzI5IC0xOTgKLTE3NyAtMTIwIC04NDUgLTQzNCAtMTAwMyAtNDcyIC0yODAgLTY3IC0zNTIgLTEwOCAtMzMzIC0xODggMTQgLTYyIDYxIC05MgoyMzggLTE1MSAyNDMgLTgyIDQxNiAtMTQ3IDU3MiAtMjE0IDE0MSAtNjEgMjExIC05OCA0MzAgLTIzMCA1MCAtMjkgMTAyIC01OAoxMTYgLTY0IDE1IC02IDEwNSAtNTcgMjAwIC0xMTQgOTYgLTU2IDIxMSAtMTI0IDI1NyAtMTUwIDEyNCAtNzMgMjY2IC0xODQKMzM2IC0yNjMgMzMgLTM4IDEwOCAtMTIyIDE2NiAtMTg2IDI4NSAtMzE3IDM4OSAtNDUwIDUxNyAtNjcwIDI4IC00NyA2NCAtMTA2CjgyIC0xMzIgMTcgLTI2IDQzIC03MiA1NiAtMTAzIDE0IC0zMSA3NyAtMTU0IDEzOSAtMjczIDYzIC0xMTkgMTMxIC0yNTcgMTUxCi0zMDcgMjEgLTQ5IDUxIC0xMTcgNjggLTE1MCAzOSAtNzggNjIgLTE0NSA5NyAtMjgwIDExMCAtNDI5IDEyMSAtNDU5IDE4NAotNDg5IDEzNCAtNjQgMjU4IDc3IDMxMSAzNTYgNDAgMjAzIDU0IDI1NCAxMzAgNDUzIDEwOSAyODggMjM4IDU2MCAzNjggNzgwCjM4IDY2IDg5IDE1MiAxMTEgMTkwIDE1MyAyNjIgMjczIDQxNCA1MzUgNjc1IDMzMiAzMzIgNTk2IDUzNyA4NjIgNjcwIDQ2IDIzCjExMCA1OSAxNDQgODAgMTg4IDExNiA1NTEgMjc5IDcwNSAzMTYgOTUgMjMgMTU3IDQzIDIyNSA3NCAzMyAxNSA5MSAzOCAxMjgKNTAgNjggMjQgNjggMjQgNjUgMTQzIC0zIDExOSAtMyAxMTkgLTExOCAxNjIgLTYzIDI0IC0xNDQgNTYgLTE4MCA3MyAtMzYgMTYKLTExMCA0MyAtMTY2IDYwIC01NSAxNyAtMTM2IDQ4IC0xODAgNjggLTQzIDIwIC0xMjQgNTQgLTE3OCA3NSAtNTUgMjEgLTEyNwo1NyAtMTYwIDc4IC0zNCAyMiAtNzQgNDUgLTg5IDUwIC0xNSA2IC02MyAzMyAtMTA1IDYwIC00MiAyNyAtMTA4IDY2IC0xNDcgODgKLTM4IDIyIC05OCA1OSAtMTMyIDg0IC0zNCAyNCAtMTEyIDc2IC0xNzMgMTE0IC02MSAzOSAtMTM2IDg5IC0xNjUgMTEyIC0yOQoyMyAtODUgNjUgLTEyNCA5MiAtMzkgMjggLTExOSA5MCAtMTc3IDEzOCAtNTggNDkgLTEyNCAxMDIgLTE0NSAxMTggLTIxIDE3Ci02MCA1OSAtODcgOTUgLTI2IDM2IC03MiA5NyAtMTAwIDEzNSAtMjkgMzkgLTczIDk3IC05OCAxMzAgLTc0IDk5IC0xNTEgMjE2Ci0xODUgMjgwIC0xNyAzMyAtNDkgODYgLTcxIDExOCAtMjEgMzIgLTU0IDkxIC03MiAxMzAgLTE4IDQwIC01MSAxMDAgLTczIDEzNAotMjIgMzQgLTUxIDg4IC02MyAxMjAgLTEzIDMyIC00MSA4NiAtNjIgMTE5IC0yMSAzNCAtNTAgOTUgLTY0IDEzNSAtMTQgNDEKLTQ1IDExNyAtNjkgMTY5IC0yNCA1MiAtNTYgMTM1IC03MCAxODMgLTE0IDQ5IC00NSAxMzIgLTY5IDE4NSAtMjkgNjQgLTUyCjEzNCAtNjYgMjA0IC01MCAyNTIgLTEzNiAzNjAgLTIxMyAyNjh6Ii8+PHBhdGggZD0iTTI0MzcwIDIyMDU0IGMtNzEgLTMxIC05NiAtNjggLTE1NCAtMjI2IC01MiAtMTQzIC0xMjEgLTI5NCAtMTQ4Ci0zMjYgLTE2MyAtMTkzIC0yMTggLTIzOCAtNDM4IC0zNDggLTE5NiAtOTggLTI0NSAtMTU0IC0yMDYgLTIzNiAyMyAtNDcgMTYzCi0xNTYgMjcxIC0yMTEgNzYgLTM4IDIwNiAtMTM4IDMwNiAtMjM0IDgyIC03OSA5MiAtOTMgMTYzIC0yMzUgNDIgLTgyIDc2Ci0xNTcgNzYgLTE2NSAwIC0zNyA4MSAtMTgyIDExMiAtMjAxIDEwNSAtNjUgMTMzIC0zNyAyNTggMjU4IDE0NiAzNDMgMjc5IDUwNAo0ODYgNTg1IDEyMiA0OSAzMDIgMTQ1IDMyOSAxNzYgNjggODIgLTE0IDE1NSAtMjkzIDI2MSAtNjIgMjMgLTI0NiAxNDMgLTI4MwoxODQgLTUwIDU2IC0xNTIgMjAwIC0xNjcgMjM0IC04IDE5IC0zOCA4NSAtNjcgMTQ1IC0yOSA2MSAtNjUgMTUwIC04MCAxOTkKLTQxIDEzNiAtODYgMTc0IC0xNjUgMTQweiIvPjwvZz4KICA8L2c+Cjwvc3ZnPgo=">
+<title>Build Something — citizen developer workshop</title>
+<style>
+:root {
+  /* forgd Brand */
+  --forgd-navy: #07152A;
+  --forgd-white: #FFFFFF;
+  --forgd-slate: #E6E9EF;
+  --forgd-orange: #D97757;
+  --forgd-orange-light: #E89578;
+  --forgd-orange-dim: #A85A3F;
+  --forgd-orange-bg: rgba(217, 119, 87, 0.10);
+  --forgd-orange-bg-strong: rgba(217, 119, 87, 0.18);
+  --forgd-orange-glow: rgba(217, 119, 87, 0.06);
+  --border-orange: rgba(217, 119, 87, 0.4);
+
+  /* Background scale (navy depth) */
+  --bg-deep: #040C18;
+  --bg-primary: #050F1E;
+  --bg-card: #0C1F3A;
+  --bg-card-hover: #0F2540;
+  --bg-elevated: #142E4D;
+
+  /* Accent system */
+  --accent-primary: #A0B4C8;
+  --accent-primary-light: #D0DCE8;
+  --accent-primary-dim: #506880;
+  --accent-primary-glow: rgba(160, 180, 200, 0.06);
+  --accent-primary-glow-strong: rgba(160, 180, 200, 0.12);
+
+  /* Text */
+  --text-primary: #F0F4F8;
+  --text-secondary: #8899AA;
+  --text-dim: #4A6078;
+
+  /* Functional accents */
+  --accent-green: #5A9E6F;
+  --accent-green-bg: rgba(90, 158, 111, 0.10);
+  --accent-red: #B85C5C;
+  --accent-red-bg: rgba(184, 92, 92, 0.10);
+  --accent-blue: #5A7EC7;
+  --accent-blue-bg: rgba(90, 126, 199, 0.06);
+  --accent-amber: #C7994A;
+  --accent-amber-bg: rgba(199, 153, 74, 0.10);
+
+  /* Category palette */
+  --cat-terracotta: #C75B3A;
+  --cat-sage: #6B8A7A;
+  --cat-steel: #4A7AB5;
+  --cat-brown: #8B6F47;
+  --cat-moss: #5B9A6F;
+  --cat-terracotta-bg: rgba(199, 91, 58, 0.15);
+  --cat-sage-bg: rgba(107, 138, 122, 0.15);
+  --cat-steel-bg: rgba(74, 122, 181, 0.15);
+  --cat-brown-bg: rgba(139, 111, 71, 0.15);
+  --cat-moss-bg: rgba(91, 154, 111, 0.15);
+
+  /* Borders */
+  --border-subtle: rgba(160, 180, 200, 0.06);
+  --border-medium: rgba(160, 180, 200, 0.12);
+  --border-strong: rgba(160, 180, 200, 0.22);
+
+  /* Structure */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.3);
+  --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --transition-smooth: 0.25s ease;
+  --transition-snap: 0.15s ease;
+
+  /* Font stacks — no external font fetch; Inter is used when installed,
+     the system stack carries the page offline and behind proxies */
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono: 'Roboto Mono', 'SF Mono', 'Fira Code', Consolas, monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+header.site {
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-primary);
+  padding: 18px 0;
+}
+header.site .wrap { display: flex; align-items: center; justify-content: space-between; }
+header.site img { height: 28px; display: block; }
+.header-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.hero { padding: 72px 0 56px; background: var(--bg-primary); border-bottom: 1px solid var(--border-subtle); }
+.eyebrow-rule {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--forgd-orange);
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 18px;
+}
+.eyebrow-rule::before { content: ''; width: 24px; height: 1px; background: var(--forgd-orange); }
+.hero h1 {
+  font-size: clamp(30px, 5vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  max-width: 640px;
+}
+.hero h1 .accent { color: var(--forgd-orange); }
+.hero p { color: var(--text-secondary); font-size: 17px; max-width: 620px; margin-top: 18px; }
+
+section { padding: 56px 0; }
+section + section { border-top: 1px solid var(--border-subtle); }
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--forgd-orange);
+  margin-bottom: 10px;
+}
+.section-title { font-size: 28px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; }
+.section-desc { color: var(--text-secondary); max-width: 640px; margin-bottom: 28px; }
+
+.card-grid { display: grid; gap: 16px; }
+.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.cols-2 { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 760px) { .cols-3, .cols-2 { grid-template-columns: 1fr; } }
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-smooth);
+}
+.card:hover { background: var(--bg-card-hover); border-color: var(--border-strong); }
+.card-label {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent-primary);
+  margin-bottom: 8px;
+}
+.card-title { font-weight: 700; font-size: 16px; margin-bottom: 6px; }
+.card-text { color: var(--text-secondary); font-size: 14px; }
+.card-check {
+  font-family: var(--font-mono); font-size: 12.5px;
+  color: var(--accent-primary-light);
+  background: var(--accent-primary-glow);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px; margin-top: 12px;
+}
+
+.callout {
+  border: 1px solid var(--border-orange);
+  background: var(--forgd-orange-glow);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  margin-top: 20px;
+  color: var(--accent-primary-light);
+  font-size: 14.5px;
+}
+.callout strong { color: var(--text-primary); }
+a.link { color: var(--forgd-orange-light); text-decoration: none; border-bottom: 1px solid var(--border-orange); }
+a.link:hover { color: var(--forgd-orange); }
+
+.flow { display: grid; gap: 14px; counter-reset: step; }
+.flow-step {
+  display: grid; grid-template-columns: 44px 1fr; gap: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  transition: var(--transition-smooth);
+}
+.flow-step:hover { border-color: var(--border-strong); }
+.flow-num {
+  font-family: var(--font-mono); font-size: 14px; font-weight: 500;
+  color: var(--forgd-orange);
+  border: 1px solid var(--border-orange);
+  border-radius: var(--radius-md);
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+}
+.flow-label { font-weight: 700; margin-bottom: 2px; }
+.flow-desc { color: var(--text-secondary); font-size: 14px; }
+.flow-desc code, .inline-code {
+  font-family: var(--font-mono); font-size: 12.5px;
+  color: var(--accent-primary-light);
+  background: var(--accent-primary-glow-strong);
+  border-radius: var(--radius-sm);
+  padding: 1px 6px;
+}
+
+.loop-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 26px; }
+@media (max-width: 760px) { .loop-row { grid-template-columns: 1fr; } }
+.loop-cell {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 12px 8px;
+  text-align: center;
+  position: relative;
+}
+.loop-cell .word { font-weight: 700; font-size: 14px; }
+.loop-cell .n { font-family: var(--font-mono); font-size: 10px; color: var(--forgd-orange); display: block; margin-bottom: 2px; }
+
+.zone-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 760px) { .zone-row { grid-template-columns: 1fr; } }
+.zone {
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  border: 1px solid var(--border-medium);
+  background: var(--bg-card);
+}
+.zone-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  padding: 4px 9px; margin-bottom: 10px;
+}
+.zone-badge::before { content: ''; width: 8px; height: 8px; border-radius: 50%; }
+.zone-safe .zone-badge { color: var(--accent-green); background: var(--accent-green-bg); }
+.zone-safe .zone-badge::before { background: var(--accent-green); }
+.zone-review .zone-badge { color: var(--accent-amber); background: var(--accent-amber-bg); }
+.zone-review .zone-badge::before { background: var(--accent-amber); }
+.zone-stop .zone-badge { color: var(--accent-red); background: var(--accent-red-bg); }
+.zone-stop .zone-badge::before { background: var(--accent-red); }
+.zone p { color: var(--text-secondary); font-size: 13.5px; }
+
+.track {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-left: 3px solid var(--track-color, var(--accent-primary));
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-smooth);
+}
+.track:hover { background: var(--bg-card-hover); }
+.track-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+.track-num {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--track-color, var(--accent-primary));
+}
+.track-title { font-size: 18px; font-weight: 700; }
+.track-fit { color: var(--text-secondary); font-size: 14px; margin-bottom: 4px; }
+.track-teach { color: var(--text-secondary); font-size: 14px; margin-bottom: 14px; }
+.track-teach strong { color: var(--accent-primary-light); font-weight: 600; }
+
+.prompt-box {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  position: relative;
+}
+.prompt-label {
+  font-family: var(--font-mono); font-size: 10.5px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+.prompt-text {
+  font-family: var(--font-mono);
+  font-size: 12.5px; line-height: 1.65;
+  color: var(--accent-primary-light);
+  white-space: pre-wrap;
+}
+.copy-btn {
+  position: absolute; top: 10px; right: 10px;
+  font-family: var(--font-body); font-size: 12px; font-weight: 600;
+  background: var(--forgd-orange); color: var(--forgd-white);
+  border: none; border-radius: var(--radius-md);
+  padding: 7px 14px; cursor: pointer;
+  transition: var(--transition-snap);
+}
+.copy-btn:hover { background: var(--forgd-orange-light); }
+.copy-btn.copied { background: var(--accent-green); }
+
+/* Inline copy-able prompt — used in requirement cards and walkthrough steps */
+.prompt-chip {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--accent-primary-glow);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 7px 7px 7px 12px;
+  margin-top: 12px;
+}
+.prompt-chip .chip-text {
+  font-family: var(--font-mono); font-size: 12.5px; line-height: 1.5;
+  color: var(--accent-primary-light);
+  flex: 1; min-width: 0; overflow-wrap: anywhere;
+}
+.copy-btn.compact { position: static; flex: none; font-size: 11px; padding: 5px 11px; }
+
+/* Checkpoint — the "everyone stop here" marker */
+.checkpoint {
+  border: 1px solid var(--accent-green);
+  background: var(--accent-green-bg);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  margin-top: 20px;
+  font-size: 14.5px;
+  color: var(--accent-primary-light);
+}
+.checkpoint strong { color: var(--text-primary); }
+
+/* Track tabs */
+.track-tabs {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--border-medium);
+  padding-bottom: 12px;
+}
+.track-tab {
+  font-family: var(--font-body); font-size: 13px; font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 9px 15px;
+  cursor: pointer;
+  transition: var(--transition-snap);
+}
+.track-tab:hover { color: var(--text-primary); border-color: var(--border-strong); }
+.track-tab.active {
+  color: var(--forgd-white);
+  background: var(--forgd-orange);
+  border-color: var(--forgd-orange);
+}
+.track-panel { display: none; }
+.track-panel.active {
+  display: block;
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-left: 3px solid var(--track-color, var(--accent-primary));
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  box-shadow: var(--shadow-card);
+}
+
+/* Markdown converted from the track READMEs */
+.track-detail { margin-top: 20px; }
+.track-detail h2 {
+  font-size: 15px; font-weight: 700; letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: 20px 0 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+.track-detail h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.track-detail p { color: var(--text-secondary); font-size: 14px; margin: 0 0 9px; }
+.track-detail strong { color: var(--accent-primary-light); font-weight: 600; }
+.track-detail ul, .track-detail ol { margin: 0 0 10px; padding-left: 20px; }
+.track-detail li { color: var(--text-secondary); font-size: 14px; margin-bottom: 5px; }
+.track-detail code {
+  font-family: var(--font-mono); font-size: 12.5px;
+  color: var(--accent-primary-light);
+  background: var(--accent-primary-glow-strong);
+  border-radius: var(--radius-sm);
+  padding: 1px 6px;
+}
+.track-detail a { color: var(--forgd-orange-light); text-decoration: none; }
+
+/* Four-track chooser — keeps every option comparable while tabs show one at a time */
+.track-chooser { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 16px; }
+@media (max-width: 700px) { .track-chooser { grid-template-columns: 1fr; } }
+.track-choose {
+  display: flex; flex-direction: column; gap: 2px;
+  text-align: left; font-family: var(--font-body);
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 11px 14px; cursor: pointer;
+  transition: var(--transition-snap);
+}
+.track-choose:hover { border-color: var(--border-orange); background: var(--bg-card-hover); }
+.choose-name { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+.choose-why { font-size: 12.5px; color: var(--text-secondary); }
+
+.rule-box {
+  border: 1px solid var(--border-orange);
+  background: var(--forgd-orange-glow);
+  border-radius: var(--radius-lg);
+  padding: 24px 26px;
+}
+.rule-box h3 { font-size: 19px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+.rule-box p { color: var(--accent-primary-light); font-size: 15px; max-width: 620px; }
+
+.debrief-list { display: grid; gap: 10px; max-width: 640px; }
+.debrief-item {
+  display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: baseline;
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 13px 16px;
+}
+.debrief-item .q { font-family: var(--font-mono); font-size: 12px; color: var(--forgd-orange); }
+.debrief-item .t { font-size: 14.5px; color: var(--accent-primary-light); }
+
+footer.site {
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-primary);
+  padding: 28px 0 36px;
+}
+footer.site .brand { font-size: 14px; color: var(--accent-primary); }
+footer.site .brand b { font-weight: 900; color: var(--text-primary); }
+footer.site .note { font-size: 12px; color: var(--text-dim); margin-top: 6px; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <img src="data:image/png;base64,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" alt="forgd">
+    <div class="header-label">citizen developer &middot; build something</div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow-rule">Build Something</div>
+    <h1>Build something <span class="accent">real</span> today</h1>
+    <p>Pick one project, describe it to Claude, and get a working tool running on your own
+    machine. You will not write code. You will describe what you want, read what Claude
+    does, and tell it when something looks wrong.</p>
+  </div>
+</div>
+
+<section id="requirements">
+  <div class="wrap">
+    <div class="section-eyebrow">Before you start</div>
+    <h2 class="section-title">What's already on your machine</h2>
+    <p class="section-desc">The <a class="link" href="Setup-Guide.pdf">setup guide</a> sent
+    before the session covered all of these. Beyond them, you will not need a GitHub account,
+    Node, npm, or any new admin approvals today.</p>
+    <div class="card-grid cols-2">
+      <div class="card">
+        <div class="card-label">01 &middot; Files</div>
+        <div class="card-title">This folder</div>
+        <div class="card-text">Downloaded and unzipped somewhere easy to find, like your Desktop, then selected in Claude Code. Working inside the zip itself will not work. This is the first thing you do today.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">02 &middot; App</div>
+        <div class="card-title">Claude Code Desktop</div>
+        <div class="card-text">Installed, signed in, on a Pro, Max, Team, or Enterprise plan. Claude cannot see your billing, so do not ask it which plan you are on — the Code tab opening at all is the real test. To read the plan name, go to claude.ai &rarr; Settings &rarr; Billing.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">03 &middot; Runtime</div>
+        <div class="card-title">Python 3</div>
+        <div class="card-text">Unsure? Ask Claude and it will check for you.</div>
+        <div class="prompt-chip">
+          <span class="chip-text" id="prompt-python">do I have Python installed?</span>
+          <button class="copy-btn compact" data-target="prompt-python" type="button">Copy</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">04 &middot; Windows only</div>
+        <div class="card-title">Git for Windows</div>
+        <div class="card-text">Needed before the Code tab will open. Mac users can skip this one.</div>
+        <div class="prompt-chip">
+          <span class="chip-text" id="prompt-git">do I have git installed?</span>
+          <button class="copy-btn compact" data-target="prompt-git" type="button">Copy</button>
+        </div>
+      </div>
+    </div>
+    <div class="callout"><strong>Missing one of these?</strong> Tell a facilitator now, not
+    fifteen minutes in — setup problems are fastest to fix before the build starts. The
+    <a class="link" href="Setup-Guide.pdf">setup guide</a> is in this folder too, as a PDF.</div>
+  </div>
+</section>
+
+<section id="open">
+  <div class="wrap">
+    <div class="section-eyebrow">Together, at the start</div>
+    <h2 class="section-title">The guided walkthrough</h2>
+    <p class="section-desc">Twelve steps, led from the front — we do them as a group and
+    nobody has to get ahead. <strong>Reading this at home?</strong> There is nothing to do
+    here yet; skim it so the steps look familiar. Steps 01 and 02 you already did during
+    setup, so they take seconds the second time.</p>
+    <div class="flow">
+
+      <div class="flow-step">
+        <div class="flow-num">01</div>
+        <div>
+          <div class="flow-label">Open Claude Code Desktop and click the Code tab</div>
+          <div class="flow-desc">Top center — not <code>Chat</code>, not <code>Cowork</code>. Code is the tab with direct access to your files. Your account shows in the corner when you are signed in.</div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">02</div>
+        <div>
+          <div class="flow-label">Choose Local, then select your workshop folder</div>
+          <div class="flow-desc">Pick <code>Local</code> as the environment, then <strong>Select folder</strong> and choose the <code>citizen-dev-workshop</code> folder you unzipped before the session. If it asks permission, approve it — that folder is the only place Claude will work.</div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">03</div>
+        <div>
+          <div class="flow-label">Take the tour</div>
+          <div class="flow-desc">We walk the interface together: which <strong>model</strong> and <strong>effort</strong> you are on, the <strong>permission modes</strong> in the dropdown next to the send button, and <strong>Plan Mode</strong>, which makes Claude propose a plan before it changes anything. Watch for now — you will use all three today.</div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">04</div>
+        <div>
+          <div class="flow-label">Your first prompt</div>
+          <div class="flow-desc">Send this and check that the four track folders come back.</div>
+          <div class="prompt-chip">
+            <span class="chip-text" id="prompt-list">list the files in this folder</span>
+            <button class="copy-btn compact" data-target="prompt-list" type="button">Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">05</div>
+        <div>
+          <div class="flow-label">Open this page from Claude's reply</div>
+          <div class="flow-desc">In the file list Claude just sent, click <code>START-HERE.html</code>. It opens in the built-in <strong>Browser</strong> pane, right beside the chat — which is where you are reading this now. Everything for the rest of the day lives on this page, so leave it open: the pane has tabs, and what you build later opens in its own.</div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">06</div>
+        <div>
+          <div class="flow-label">Look at the file view</div>
+          <div class="flow-desc">The same folder, shown as a file tree. Claude is not doing anything magic — it is reading and writing these files, and you can watch it happen.</div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">07</div>
+        <div>
+          <div class="flow-label">Try the built-in terminal</div>
+          <div class="flow-desc">Open the Terminal pane and type this. It lists the same files Claude just listed — a third window onto one folder, and proof there is nothing hidden behind the chat.</div>
+          <div class="prompt-chip">
+            <span class="chip-text" id="prompt-ls">ls</span>
+            <button class="copy-btn compact" data-target="prompt-ls" type="button">Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">08</div>
+        <div>
+          <div class="flow-label">Make the panes yours</div>
+          <div class="flow-desc">Drag the dividers, resize, and rearrange until chat, browser, files, and terminal sit where you want them. Worth two minutes now — you will be looking at this layout all afternoon.</div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">09</div>
+        <div>
+          <div class="flow-label">Make your first change</div>
+          <div class="flow-desc">Put your own name in the debrief file. Small on purpose — the point is watching Claude edit a real file on your machine.</div>
+          <div class="prompt-chip">
+            <span class="chip-text" id="prompt-name">Add my name to the top of DEBRIEF.md</span>
+            <button class="copy-btn compact" data-target="prompt-name" type="button">Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">10</div>
+        <div>
+          <div class="flow-label">Read the diff</div>
+          <div class="flow-desc">Look at Claude's reply. The edit shows as <code>+1 -1</code>; click it and the diff opens right there, the old line above the new one. This is the habit that matters most today: <strong>Claude proposes, you read, you decide.</strong> Never approve a change you have not looked at.</div>
+          <div class="flow-desc" style="margin-top: 8px;">Now open the <strong>Changes</strong> pane for the wider view: not just this edit, but everything altered since you unzipped the folder. Come back to it whenever you want to know what a build actually touched.</div>
+          <div class="flow-desc" style="margin-top: 8px; color: var(--text-dim);">If that pane says "No changes to show" even though the diff in the chat is right there, it has simply lost track — close and reopen it. The edit is safe either way; the chat is the one that is always right.</div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">11</div>
+        <div>
+          <div class="flow-label">Meet the tracks</div>
+          <div class="flow-desc">Back to this page, and scroll on. Four projects are described below, each in its own tab with a first prompt, stretch goals, and what to do when it breaks. We walk through them together and demo the first step of one.</div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">12</div>
+        <div>
+          <div class="flow-label">Pick your track and start</div>
+          <div class="flow-desc">From here you work at your own pace. Open your track's tab below, copy its first prompt, and go. Facilitators are circulating — and everything you need is on this page.</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="checkpoint"><strong>Checkpoint.</strong> You are in the right place when the
+    track folders came back from step 04, this page is open in the Browser pane, and your
+    name is in <code>DEBRIEF.md</code>. Got there early? Hold — we move on as a group. Not
+    there yet? Raise a hand now, while it is still a two-minute fix.</div>
+    <div class="callout"><strong>On Windows?</strong> The Code tab needs <a class="link" href="https://git-scm.com/downloads/win">Git for Windows</a> installed the first time you open it — install it and restart the app if prompted. Most Macs already have Git, so this is usually a Windows-only detour.</div>
+  </div>
+</section>
+
+<section id="method">
+  <div class="wrap">
+    <div class="section-eyebrow">The method</div>
+    <h2 class="section-title">One loop, the whole skill</h2>
+    <div class="loop-row">
+      <div class="loop-cell"><span class="n">01</span><span class="word">Describe</span></div>
+      <div class="loop-cell"><span class="n">02</span><span class="word">Plan</span></div>
+      <div class="loop-cell"><span class="n">03</span><span class="word">Build</span></div>
+      <div class="loop-cell"><span class="n">04</span><span class="word">Run</span></div>
+      <div class="loop-cell"><span class="n">05</span><span class="word">Debug</span></div>
+    </div>
+    <div class="card-grid cols-2">
+      <div class="card">
+        <div class="card-title">Plan before code</div>
+        <div class="card-text">Every track prompt below asks Claude to make a short plan first.
+        You approve the plan, then it builds. Keep that habit for everything non-trivial.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Run it</div>
+        <div class="card-text">Ask Claude to run the tool. It opens in the Browser pane —
+        as a <strong>new tab</strong>, so this page stays where it is. Flip between the two
+        tabs: instructions in one, your project in the other.
+        <br><br><strong>Check the address bar.</strong> It should say
+        <span class="inline-code">localhost</span>. A long <span class="inline-code">/Users/...</span>
+        path means you are looking at the file itself, and anything it loads from another
+        file — a CSV, for instance — will fail. Say <em>start a web server in this folder
+        and open the localhost page in the browser</em>.
+        <br><br>You may get <strong>two tabs with the same name</strong>: a preview of the
+        file, and the served page. Claude's message includes a card reading
+        <em>"localhost:… &middot; Opened in Browser"</em> with an <strong>Open</strong>
+        button — that always goes to the working one. To clear the other, say
+        <em>close the tab showing this page as a local file</em>.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">When it breaks, feed the error back</div>
+        <div class="card-text">Something will break, and that is the curriculum working. Copy
+        the error, paste it to Claude, and say "this happened." Starting over is the one move
+        that wastes time.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Screenshots for anything visual</div>
+        <div class="card-text">If the page looks wrong rather than erroring, share a
+        screenshot. Claude reads images.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="zones">
+  <div class="wrap">
+    <div class="section-eyebrow">Know your zone</div>
+    <h2 class="section-title">Three questions before any project</h2>
+    <p class="section-desc">Does it only affect your own work? Does it only read data you
+    already have permission to see? Can you throw it away if it breaks? Three yeses means
+    build freely. The tracks below are labeled so you can see the zones in action.</p>
+    <div class="zone-row">
+      <div class="zone zone-safe">
+        <div class="zone-badge">Safe</div>
+        <p>Your work, your data, throwaway. Build without asking anyone.</p>
+      </div>
+      <div class="zone zone-review">
+        <div class="zone-badge">Review</div>
+        <p>Anything shared, scheduled, or relied on by others. Build it, then have a review conversation before anyone depends on it.</p>
+      </div>
+      <div class="zone zone-stop">
+        <div class="zone-badge">Stop</div>
+        <p>Production-shaped systems: real shared data, credentials, decisions others act on. Talk to engineering first.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tracks">
+  <div class="wrap">
+    <div class="section-eyebrow">Pick a track</div>
+    <h2 class="section-title">Four projects, one <span style="color: var(--forgd-orange);">copy-paste</span> from starting</h2>
+    <p class="section-desc">Pick a tab and work straight from it — the first prompt, what
+    it teaches, stretch goals, and what to do when it breaks are all here. Undecided?
+    Take Track 1. You will not write any code: you describe, Claude builds, you check.</p>
+    <!-- TRACKS:START -->
+      <div class="track-chooser">
+        <button class="track-choose" data-track="1-earthquake-dashboard" type="button"><span class="choose-name">Earthquake Dashboard</span><span class="choose-why">the smoothest start, on live public data</span></button>
+        <button class="track-choose" data-track="2-csv-visualizer" type="button"><span class="choose-name">Catalog Visualizer</span><span class="choose-why">charts and search over a spreadsheet</span></button>
+        <button class="track-choose" data-track="3-notes-app" type="button"><span class="choose-name">Personal Notes App</span><span class="choose-why">a real running app with its own database</span></button>
+        <button class="track-choose" data-track="4-tradebook" type="button"><span class="choose-name">Tradebook</span><span class="choose-why">looks production-ready, and why that is the lesson</span></button>
+      </div>
+      <div class="track-tabs" role="tablist">
+        <button class="track-tab active" data-track="1-earthquake-dashboard" type="button">Track 1 &middot; Earthquake</button>
+        <button class="track-tab" data-track="2-csv-visualizer" type="button">Track 2 &middot; Catalog</button>
+        <button class="track-tab" data-track="3-notes-app" type="button">Track 3 &middot; Notes</button>
+        <button class="track-tab" data-track="4-tradebook" type="button">Track 4 &middot; Tradebook</button>
+      </div>
+      <div class="track-panel active" data-track="1-earthquake-dashboard" style="--track-color: var(--cat-steel);">
+        <div class="track-head">
+          <span class="track-num">Track 1 &middot; Default</span>
+          <span class="track-title">Earthquake Dashboard</span>
+          <span class="zone-badge" style="color: var(--accent-green); background: var(--accent-green-bg);">Safe</span>
+        </div>
+        <div class="track-fit">Good if you want the smoothest start.</div>
+        <div class="track-teach">Teaches: calling a <strong>live public data feed</strong> and handling refresh and errors. Real earthquakes, no account, no key.</div>
+        <div class="prompt-box">
+          <div class="prompt-label">First prompt &middot; copy this to start</div>
+          <div class="prompt-text" id="prompt-1-earthquake-dashboard">Build me a single-page earthquake dashboard as one self-contained `index.html` file inside `tracks/1-earthquake-dashboard/` — plain HTML, CSS, and JavaScript, no frameworks and nothing to install. It should fetch the last 24 hours of earthquakes from the USGS public GeoJSON feed at `https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson`, show a summary (how many quakes, strongest magnitude), and a sortable table of the biggest ones with place, magnitude, and time. Add a refresh button, and show a friendly message if the feed can&#x27;t be reached. Make a short plan first before writing code. When it is built, start a local web server in this folder with Python and **open** the resulting `http://localhost` page in the browser. If a tab is showing this same page from a file path, close that one — but leave every other tab open, including the workshop guide.</div>
+          <button class="copy-btn" data-target="prompt-1-earthquake-dashboard" type="button">Copy</button>
+        </div>
+        <div class="track-detail">
+<h2>What you&#x27;ll build</h2>
+<p>A single-page dashboard showing earthquakes from the last 24 hours, using the U.S. Geological Survey&#x27;s public earthquake feed. Live, real data — no account, no API key, no sign-up. Just a web page that fetches and displays it.</p>
+<h2>What it teaches</h2>
+<ul>
+<li><p>Calling a <strong>live public API</strong> and showing the result</p></li>
+<li><p>Handling refresh (new data arrives constantly) and errors (what if the feed is down?)</p></li>
+<li><p>That a useful tool can be <strong>one single file</strong> with no server behind it</p></li>
+</ul>
+<h2>Stretch goals (if you finish early)</h2>
+<ul>
+<li><p>Color-code rows by magnitude (green / orange / red)</p></li>
+<li><p>Add a filter: &quot;only show magnitude 4.0 and above&quot;</p></li>
+<li><p>Auto-refresh every 60 seconds — and ask Claude what changed in the code to do that</p></li>
+</ul>
+<h2>If you get stuck</h2>
+<p>Paste the exact error (or a screenshot) back to Claude and ask it to fix it. If nothing appears in the browser, tell Claude what you see — a blank page and an error page are different clues.</p>
+<p><strong>Two tabs with the same name?</strong> Desktop previews the file it just wrote as well as the served page. The working one says <code>localhost</code> in the address bar, and Claude&#x27;s message has an <strong>Open</strong> button that always goes to it. To clear the other, say <em>close the tab showing this page as a local file</em>. You may also see an orange warning that a tab &quot;shows a single file and can&#x27;t follow links&quot; — that is the same preview tab, and it goes away when the tab does.</p>
+<p><strong>Stuck for 10 minutes? Grab a facilitator.</strong></p>
+<h2>Could you ship this? (Part 5 preview)</h2>
+<p>Yes — this is the textbook shippable case. It&#x27;s a static page with no server, no credentials, and only public data. Hosting it is a copy-paste, not an engineering project.</p>
+        </div>
+      </div>
+      <div class="track-panel" data-track="2-csv-visualizer" style="--track-color: var(--cat-sage);">
+        <div class="track-head">
+          <span class="track-num">Track 2</span>
+          <span class="track-title">Catalog Visualizer</span>
+          <span class="zone-badge" style="color: var(--accent-green); background: var(--accent-green-bg);">Safe</span>
+        </div>
+        <div class="track-fit">Good if you work with spreadsheets all day.</div>
+        <div class="track-teach">Teaches: turning a <strong>CSV into something visual</strong> — charts, search, filters. Swap in your own file later and the same tool works.</div>
+        <div class="prompt-box">
+          <div class="prompt-label">First prompt &middot; copy this to start</div>
+          <div class="prompt-text" id="prompt-2-csv-visualizer">Look at `tracks/2-csv-visualizer/data/catalog.csv` and tell me what columns it has. Then build me a single self-contained `index.html` page inside `tracks/2-csv-visualizer/` — plain HTML, CSS, and JavaScript, no frameworks and nothing to install — that loads that CSV and shows: a bar chart of titles per genre, a chart of titles per release year, and a searchable, sortable table of all titles. Draw the charts yourself with HTML/CSS or SVG rather than pulling in a charting library. Make a short plan first before writing code. When it is built, start a local web server in this folder with Python and **open** the resulting `http://localhost` page in the browser — it fetches a CSV, which only works over http. If a tab is showing this same page from a file path, close that one — it cannot load the data — but leave every other tab open, including the workshop guide.</div>
+          <button class="copy-btn" data-target="prompt-2-csv-visualizer" type="button">Copy</button>
+        </div>
+        <div class="track-detail">
+<h2>What you&#x27;ll build</h2>
+<p>A visual explorer for <code>data/catalog.csv</code> — a sample catalog of ~200 (entirely fictional) streaming titles with genre, year, rating, and duration. Charts, search, filters: you decide what &quot;explorer&quot; means. This is the track closest to real office work — swap in your own CSV later and the same tool works.</p>
+<h2>What it teaches</h2>
+<ul>
+<li><p>Turning a <strong>spreadsheet into something visual and interactive</strong></p></li>
+<li><p>How Claude reads and transforms tabular data</p></li>
+<li><p>That &quot;build me a dashboard for this file&quot; is a complete, reasonable request</p></li>
+</ul>
+<h2>Stretch goals (if you finish early)</h2>
+<ul>
+<li><p>Add a filter by rating, or an &quot;average duration by genre&quot; stat</p></li>
+<li><p>Ask Claude: &quot;what&#x27;s the most surprising thing in this dataset?&quot; and chart its answer</p></li>
+<li><p>Point the same page at a <em>different</em> CSV and see what survives</p></li>
+</ul>
+<h2>If you get stuck</h2>
+<p>Paste the exact error (or a screenshot) back to Claude.</p>
+<p><strong>&quot;Could not load data/catalog.csv&quot;</strong>, or a blank page — the most common one, and it is not your fault. The page is being opened as a file instead of through a web address. Look at the address bar: a long <code>/Users/...</code> path is the problem; <code>localhost</code> is what you want. Say <em>start a web server in this folder and open the localhost page in the browser</em>.</p>
+<p><strong>Two tabs with the same name?</strong> Desktop previews the file it just wrote <em>as well as</em> the served page, and it may land you on the broken one. Two ways to tell them apart: the working tab says <code>localhost</code> in the address bar, and Claude&#x27;s message includes a card reading <strong>&quot;localhost:… · Opened in Browser&quot;</strong> with an <strong>Open</strong> button — that button always goes to the working version. If the stale tab is still cluttering things up, say <em>close the tab showing this page as a local file</em> and Claude will close it for you. You may also see an orange warning that a tab &quot;shows a single file and can&#x27;t follow links&quot; — that is the same preview tab, and it goes away when the tab does.</p>
+<p><strong>Stuck for 10 minutes? Grab a facilitator.</strong></p>
+<h2>Could you ship this? (Part 5 preview)</h2>
+<p>Yes, as long as it stays static and the data isn&#x27;t sensitive. A page plus a CSV deploys anywhere static files go. The moment the CSV becomes <em>company</em> data, you&#x27;ve left the 🟢 Safe zone — that&#x27;s a Review conversation, not a blocker.</p>
+        </div>
+      </div>
+      <div class="track-panel" data-track="3-notes-app" style="--track-color: var(--cat-brown);">
+        <div class="track-head">
+          <span class="track-num">Track 3</span>
+          <span class="track-title">Personal Notes App</span>
+          <span class="zone-badge" style="color: var(--accent-amber); background: var(--accent-amber-bg);">Review</span>
+        </div>
+        <div class="track-fit">Good if you want to see how real apps work.</div>
+        <div class="track-teach">Teaches: a <strong>running service with a real database</strong> — create, edit, delete, and notes that survive a restart.</div>
+        <div class="prompt-box">
+          <div class="prompt-label">First prompt &middot; copy this to start</div>
+          <div class="prompt-text" id="prompt-3-notes-app">Build me a personal notes app inside `tracks/3-notes-app/` using **only Python&#x27;s standard library — `http.server` and `sqlite3`, no pip installs, no frameworks**. One `app.py` file that serves a simple web page where I can create a note with a title and body, see all my notes newest-first, edit a note, and delete one. Store the notes in a local SQLite file so they survive a restart. **Do not use pop-up dialogs — no `confirm()` or `alert()`.** They do not appear in Claude Code&#x27;s built-in browser, so a Delete button wired to one does nothing at all. If you want an &quot;are you sure?&quot; step before deleting, put it inline on the page instead. Make a short plan first before writing code, then run it and **open** the resulting `http://localhost` page in the browser.</div>
+          <button class="copy-btn" data-target="prompt-3-notes-app" type="button">Copy</button>
+        </div>
+        <div class="track-detail">
+<h2>What you&#x27;ll build</h2>
+<p>A personal notes app that actually works like an app: create a note, see your list, edit, delete — and the notes are still there after you stop and restart it, because they live in a real database file on your machine. No sample data needed; you&#x27;ll write your own notes.</p>
+<h2>What it teaches</h2>
+<ul>
+<li><p>What a <strong>running local service</strong> is — start it, use it, stop it, restart it</p></li>
+<li><p>Full <strong>create / read / update / delete</strong> against a real database (SQLite)</p></li>
+<li><p>Why this kind of app is different from a static page — and why that difference is exactly where the shipping boundary sits</p></li>
+</ul>
+<h2>Try this once it runs</h2>
+<ol>
+<li><p>Create two or three notes.</p></li>
+<li><p>Ask Claude to <strong>stop the server</strong> — refresh the browser and watch the page die. That&#x27;s what &quot;the app isn&#x27;t running&quot; looks like.</p></li>
+<li><p>Ask Claude to <strong>start it again</strong> — your notes are still there. That&#x27;s the database.</p></li>
+</ol>
+<h2>Stretch goals (if you finish early)</h2>
+<ul>
+<li><p>Add search across your notes</p></li>
+<li><p>Add a &quot;pin note&quot; feature that keeps pinned notes on top</p></li>
+<li><p>Ask Claude: &quot;where exactly do my notes live on disk?&quot; and go look at the file</p></li>
+</ul>
+<h2>If you get stuck</h2>
+<p>Paste the exact error back to Claude. The classic here is a <strong>port conflict</strong> (&quot;address already in use&quot;) — tell Claude and it&#x27;ll pick another port or stop the old process.</p>
+<p><strong>Delete button does nothing — no error, no message?</strong> Claude probably guarded it with a pop-up &quot;are you sure?&quot; dialog, and those do not appear in the built-in browser, so the click goes nowhere. This is the one failure here with nothing to paste back. Tell Claude: <em>the delete button does nothing — remove the pop-up confirm and use an inline confirm step on the page instead.</em></p>
+<p><strong>Stuck for 10 minutes? Grab a facilitator.</strong></p>
+<h2>Could you ship this? (Part 5 preview)</h2>
+<p>Not by yourself — and that&#x27;s the lesson of this track. It needs a running process and a database, so there&#x27;s no static hosting path. Sharing it with your team means servers, backups, and accounts: a handoff conversation with engineering, not a build-and-deploy. For notes on your own machine, though? Ship it to yourself. It&#x27;s already shipped.</p>
+        </div>
+      </div>
+      <div class="track-panel" data-track="4-tradebook" style="--track-color: var(--cat-terracotta);">
+        <div class="track-head">
+          <span class="track-num">Track 4</span>
+          <span class="track-title">Tradebook</span>
+          <span class="zone-badge" style="color: var(--accent-green); background: var(--accent-green-bg);">Safe to build</span><span class="zone-badge" style="color: var(--accent-red); background: var(--accent-red-bg);">Stop to ship</span>
+        </div>
+        <div class="track-fit">Good if you want to see where the limits are.</div>
+        <div class="track-teach">Teaches: why <strong>looking production-ready is not being production-ready</strong>. Synthetic trades, a convincing blotter, and a hard stop before shipping.</div>
+        <div class="prompt-box">
+          <div class="prompt-label">First prompt &middot; copy this to start</div>
+          <div class="prompt-text" id="prompt-4-tradebook">Look at `tracks/4-tradebook/data/trades.csv` and describe its columns. Then build a trading-blotter web page inside `tracks/4-tradebook/` as one self-contained `index.html` — plain HTML, CSS, and JavaScript, no frameworks and nothing to install. Dark background, dense layout, like a trading terminal. Show: summary stats at the top (total trades, total notional buys vs sells), a per-instrument breakdown, and a sortable, filterable table of all trades. Make a short plan first before writing code. When it is built, start a local web server in this folder with Python and **open** the resulting `http://localhost` page in the browser — it fetches a CSV, which only works over http. If a tab is showing this same page from a file path, close that one — it cannot load the data — but leave every other tab open, including the workshop guide.</div>
+          <button class="copy-btn" data-target="prompt-4-tradebook" type="button">Copy</button>
+        </div>
+        <div class="track-detail">
+<h2>What you&#x27;ll build</h2>
+<p>A trading-desk-style blotter over <code>data/trades.csv</code> — ~150 entirely synthetic trades in made-up instruments (you&#x27;ll notice the tickers are things like <code>ZORP</code> and <code>QUUX</code>; nothing here resembles a real security). Start with a table and summary stats, then grow it into a mini terminal: filters, per-instrument views, a form to add a hypothetical trade.</p>
+<h2>What it teaches</h2>
+<ul>
+<li><p><strong>Progressive complexity</strong> — start with a table, keep adding until it feels like a product</p></li>
+<li><p>Computing summaries (totals, per-instrument breakdowns) from raw rows</p></li>
+<li><p>Where the line is between &quot;impressive demo&quot; and &quot;production system&quot;</p></li>
+</ul>
+<h2>Stretch goals (if you finish early)</h2>
+<ul>
+<li><p>Add a form to enter a new hypothetical trade (it can just update the page — no need to save it)</p></li>
+<li><p>Add a &quot;biggest trades today&quot; panel</p></li>
+<li><p>Ask Claude: &quot;what would this need to become a real tool the trading desk could use?&quot; — and read the answer through the 🔴 Stop lens</p></li>
+</ul>
+<h2>If you get stuck</h2>
+<p>Paste the exact error (or a screenshot) back to Claude and ask it to fix it.</p>
+<p><strong>&quot;Could not load data/trades.csv&quot;</strong> — the most common one, and it is not your fault. The page is being opened as a file instead of through a web address. Look at the address bar: a long <code>/Users/...</code> path is the problem; <code>localhost</code> is what you want. Say <em>start a web server in this folder and open the localhost page in the browser</em>.</p>
+<p><strong>Two tabs with the same name?</strong> Desktop previews the file it just wrote <em>as well as</em> the served page, and it may land you on the broken one. Two ways to tell them apart: the working tab says <code>localhost</code> in the address bar, and Claude&#x27;s message includes a card reading <strong>&quot;localhost:… · Opened in Browser&quot;</strong> with an <strong>Open</strong> button — that button always goes to the working version. If the stale tab is still cluttering things up, say <em>close the tab showing this page as a local file</em> and Claude will close it for you. You may also see an orange warning that a tab &quot;shows a single file and can&#x27;t follow links&quot; — that is the same preview tab, and it goes away when the tab does.</p>
+<p><strong>Stuck for 10 minutes? Grab a facilitator.</strong></p>
+<h2>Could you ship this? (Part 5 preview)</h2>
+<p><strong>No — full stop, and that&#x27;s the point of this track.</strong> Real trade data, real prices, anything anyone would make a decision from: that&#x27;s authenticated internal data, shared systems, and audit requirements. The static page you built is harmless; the <em>idea</em> of it in production is an engineering project with compliance in the room. Knowing that difference on sight is the most valuable thing this track teaches.</p>
+        </div>
+      </div>
+      <!-- TRACKS:END -->
+  </div>
+</section>
+
+<section id="stuck">
+  <div class="wrap">
+    <div class="rule-box">
+      <div class="section-eyebrow">The ten-minute rule</div>
+      <h3>Stuck? First Claude, then us.</h3>
+      <p>Paste the error back to Claude before anything else; it fixes most problems on the
+      first try. If you have been stuck for more than ten minutes, stop troubleshooting alone
+      and grab a facilitator. That is what we are here for.</p>
+    </div>
+
+    <div class="section-eyebrow" style="margin-top: 40px;">Safety net</div>
+    <h2 class="section-title">You can always go back</h2>
+    <p class="section-desc">When you unzipped this folder it started keeping track of every
+    change — that is what the Changes pane has been showing you. Nothing you do today is
+    permanent, so build boldly. If something goes sideways you do not have to start over.</p>
+    <div class="card-grid cols-2">
+      <div class="card">
+        <div class="card-title">See what has changed</div>
+        <div class="card-text">Everything you and Claude have altered since you unzipped.</div>
+        <div class="prompt-chip">
+          <span class="chip-text" id="prompt-changed">what have I changed so far?</span>
+          <button class="copy-btn compact" data-target="prompt-changed" type="button">Copy</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Put it back</div>
+        <div class="card-text">Reverses the last change when an experiment does not work out.</div>
+        <div class="prompt-chip">
+          <span class="chip-text" id="prompt-undo">undo that — put it back how it was</span>
+          <button class="copy-btn compact" data-target="prompt-undo" type="button">Copy</button>
+        </div>
+      </div>
+    </div>
+    <div class="callout">The thing doing the tracking is called <strong>git</strong>.
+    Developers use it constantly, and you do not need to learn it today — Claude drives it
+    for you. Building something for yourself after this? Ask Claude to <em>set up change
+    tracking for this folder</em> and you get the same safety net.</div>
+  </div>
+</section>
+
+<section id="debrief">
+  <div class="wrap">
+    <div class="section-eyebrow">When you finish</div>
+    <h2 class="section-title">Four questions, two minutes</h2>
+    <p class="section-desc">Open <span class="inline-code">DEBRIEF.md</span> in this folder
+    (ask Claude to open it for you) and answer these. A few volunteers will demo what they
+    built at the end.</p>
+    <div class="debrief-list">
+      <div class="debrief-item"><span class="q">Q1</span><span class="t">What does it do?</span></div>
+      <div class="debrief-item"><span class="q">Q2</span><span class="t">What was the first prompt you used?</span></div>
+      <div class="debrief-item"><span class="q">Q3</span><span class="t">Where did Claude get it wrong, and what did you do?</span></div>
+      <div class="debrief-item"><span class="q">Q4</span><span class="t">What would a tool like this be worth in your actual job?</span></div>
+    </div>
+    <div class="callout"><strong>Take this with you.</strong> <a class="link" href="Takeaway-Card.pdf">Takeaway-Card.pdf</a>
+    is in this folder — one page, printed front and back. The front is the loop and the
+    four moves that unstick almost everything; the back is how to check work you did not
+    write. Keep it next to your keyboard for the first month.</div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="brand"><b>forgd</b>&nbsp; | &nbsp;forgd.ai</div>
+    <div class="note">Everything in this workshop uses sample or synthetic data. Nothing you build today can break anything real.</div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy-btn').forEach(function (button) {
+  button.addEventListener('click', function () {
+    var text = document.getElementById(button.dataset.target).innerText;
+    function done() {
+      button.textContent = 'Copied';
+      button.classList.add('copied');
+      setTimeout(function () {
+        button.textContent = 'Copy';
+        button.classList.remove('copied');
+      }, 1800);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text, done); });
+    } else {
+      fallbackCopy(text, done);
+    }
+  });
+});
+function fallbackCopy(text, done) {
+  var area = document.createElement('textarea');
+  area.value = text;
+  area.style.position = 'fixed';
+  area.style.opacity = '0';
+  document.body.appendChild(area);
+  area.select();
+  try { document.execCommand('copy'); done(); } catch (e) {}
+  document.body.removeChild(area);
+}
+
+// Track tabs. The chosen track is remembered so a reload mid-build does not lose it;
+// storage can throw in a locked-down browser, so every access is guarded.
+(function () {
+  var tabs = document.querySelectorAll('.track-tab, .track-choose');
+  var panels = document.querySelectorAll('.track-panel');
+  if (!tabs.length) return;
+
+  function show(slug) {
+    var matched = false;
+    panels.forEach(function (panel) {
+      var isMatch = panel.dataset.track === slug;
+      panel.classList.toggle('active', isMatch);
+      if (isMatch) matched = true;
+    });
+    if (!matched) return false;
+    tabs.forEach(function (tab) {
+      tab.classList.toggle('active', tab.dataset.track === slug);
+    });
+    try { localStorage.setItem('citizen-dev-track', slug); } catch (e) {}
+    return true;
+  }
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () { show(tab.dataset.track); });
+  });
+
+  try {
+    var saved = localStorage.getItem('citizen-dev-track');
+    if (saved) show(saved);
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>

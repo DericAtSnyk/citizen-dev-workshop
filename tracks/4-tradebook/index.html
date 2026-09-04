@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tradebook</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    background: #0b0f14;
+    color: #d5dde5;
+    margin: 0;
+    padding: 16px 20px;
+    font-size: 13px;
+  }
+  h1 {
+    font-size: 1.1rem;
+    margin: 0 0 2px 0;
+    color: #e8edf2;
+    letter-spacing: 0.5px;
+  }
+  .subtitle {
+    color: #5f6c7b;
+    margin: 0 0 14px 0;
+    font-size: 0.75rem;
+  }
+  .toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  button {
+    background: #16202b;
+    color: #d5dde5;
+    border: 1px solid #2a3948;
+    padding: 5px 12px;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  button:hover { background: #1e2b38; border-color: #3a4d61; }
+  #status { font-size: 0.7rem; color: #5f6c7b; }
+
+  .summary {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .card {
+    background: #10161e;
+    border: 1px solid #202b38;
+    border-radius: 4px;
+    padding: 8px 16px;
+    min-width: 140px;
+  }
+  .card .label {
+    font-size: 0.65rem;
+    color: #5f6c7b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+  .card .value {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #e8edf2;
+  }
+  .card .value.buy { color: #3fb950; }
+  .card .value.sell { color: #f85149; }
+  .card .value.net-pos { color: #3fb950; }
+  .card .value.net-neg { color: #f85149; }
+
+  h2 {
+    font-size: 0.8rem;
+    color: #8b98a8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 18px 0 8px 0;
+    font-weight: 600;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #0e141b;
+    font-size: 0.78rem;
+  }
+  th, td {
+    text-align: right;
+    padding: 4px 10px;
+    border-bottom: 1px solid #1a2430;
+    white-space: nowrap;
+  }
+  th:first-child, td:first-child { text-align: left; }
+  td:nth-child(2), th:nth-child(2) { text-align: left; }
+  th {
+    background: #131b24;
+    color: #8b98a8;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.68rem;
+    letter-spacing: 0.4px;
+    position: sticky;
+    top: 0;
+  }
+  th:hover { color: #d5dde5; }
+  th .arrow { opacity: 0.6; margin-left: 3px; }
+  tr:hover td { background: #131b24; }
+
+  td.side-buy { color: #3fb950; }
+  td.side-sell { color: #f85149; }
+
+  .filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .filters input, .filters select {
+    background: #10161e;
+    color: #d5dde5;
+    border: 1px solid #2a3948;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-family: inherit;
+  }
+  .filters input::placeholder { color: #5f6c7b; }
+
+  .table-wrap {
+    max-height: 480px;
+    overflow-y: auto;
+    border: 1px solid #1a2430;
+    border-radius: 4px;
+  }
+
+  .error-box {
+    background: #2a1414;
+    border: 1px solid #6b2a2a;
+    color: #f5a3a3;
+    padding: 14px 18px;
+    border-radius: 4px;
+    max-width: 520px;
+  }
+  .empty-note { color: #5f6c7b; padding: 16px; }
+
+  .new-trade-form {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    flex-wrap: wrap;
+    background: #10161e;
+    border: 1px solid #202b38;
+    border-radius: 4px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+  }
+  .new-trade-form .field {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .new-trade-form label {
+    font-size: 0.62rem;
+    color: #5f6c7b;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .new-trade-form input, .new-trade-form select {
+    background: #0e141b;
+    color: #d5dde5;
+    border: 1px solid #2a3948;
+    padding: 5px 8px;
+    border-radius: 3px;
+    font-size: 0.78rem;
+    font-family: inherit;
+    width: 110px;
+  }
+  .new-trade-form button {
+    background: #1f6feb;
+    border-color: #1f6feb;
+    color: #fff;
+    font-weight: 600;
+  }
+  .new-trade-form button:hover { background: #388bfd; }
+  .hypo-note {
+    font-size: 0.7rem;
+    color: #d29922;
+    margin-left: 4px;
+  }
+  tr.hypo td {
+    background: #1a1608;
+  }
+  tr.hypo:hover td { background: #241f0d; }
+</style>
+</head>
+<body>
+
+<h1>TRADEBOOK</h1>
+<p class="subtitle">Synthetic trade blotter — data/trades.csv</p>
+
+<div class="toolbar">
+  <button id="refreshBtn">Refresh</button>
+  <span id="status"></span>
+</div>
+
+<h2>Enter hypothetical trade</h2>
+<form class="new-trade-form" id="newTradeForm">
+  <div class="field">
+    <label for="nt-ticker">Ticker</label>
+    <input type="text" id="nt-ticker" placeholder="e.g. QUUX" required style="text-transform:uppercase">
+  </div>
+  <div class="field">
+    <label for="nt-side">Side</label>
+    <select id="nt-side">
+      <option value="BUY">BUY</option>
+      <option value="SELL">SELL</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="nt-qty">Qty</label>
+    <input type="number" id="nt-qty" min="1" step="1" value="100" required>
+  </div>
+  <div class="field">
+    <label for="nt-price">Price</label>
+    <input type="number" id="nt-price" min="0" step="0.01" placeholder="0.00" required>
+  </div>
+  <div class="field">
+    <label for="nt-desk">Desk</label>
+    <input type="text" id="nt-desk" placeholder="e.g. Alpha Desk" value="Alpha Desk">
+  </div>
+  <div class="field">
+    <label for="nt-trader">Trader</label>
+    <input type="text" id="nt-trader" placeholder="e.g. Your name" value="Hypothetical">
+  </div>
+  <button type="submit">Add trade</button>
+  <span class="hypo-note">Not saved — only updates this page</span>
+</form>
+
+<div id="content"></div>
+
+<script>
+  const CSV_URL = "data/trades.csv";
+  const content = document.getElementById("content");
+  const status = document.getElementById("status");
+  const refreshBtn = document.getElementById("refreshBtn");
+
+  let trades = [];
+  let sortKey = "timestamp";
+  let sortDir = 1;
+  let filters = { ticker: "", side: "", desk: "", trader: "" };
+
+  refreshBtn.addEventListener("click", loadData);
+  document.getElementById("newTradeForm").addEventListener("submit", onAddTrade);
+  loadData();
+
+  let hypoCount = 0;
+
+  function onAddTrade(e) {
+    e.preventDefault();
+    const ticker = document.getElementById("nt-ticker").value.trim().toUpperCase();
+    const side = document.getElementById("nt-side").value;
+    const quantity = parseFloat(document.getElementById("nt-qty").value);
+    const price = parseFloat(document.getElementById("nt-price").value);
+    const desk = document.getElementById("nt-desk").value.trim() || "Unassigned";
+    const trader = document.getElementById("nt-trader").value.trim() || "Hypothetical";
+
+    if (!ticker || !isFinite(quantity) || quantity <= 0 || !isFinite(price) || price < 0) {
+      status.textContent = "Enter a ticker, positive quantity, and price.";
+      return;
+    }
+
+    hypoCount++;
+    trades.push({
+      trade_id: "HYP" + hypoCount,
+      timestamp: new Date().toISOString().slice(0, 19).replace("T", " "),
+      ticker, side, quantity, price,
+      notional: quantity * price,
+      desk, trader,
+      hypothetical: true
+    });
+
+    status.textContent = "Added hypothetical trade " + ticker + " " + side + " " + quantity + " @ " + price;
+    document.getElementById("nt-ticker").value = "";
+    document.getElementById("nt-price").value = "";
+    render();
+  }
+
+  async function loadData() {
+    refreshBtn.disabled = true;
+    status.textContent = "Loading…";
+    try {
+      const res = await fetch(CSV_URL);
+      if (!res.ok) throw new Error("CSV request failed with status " + res.status);
+      const text = await res.text();
+      trades = parseCsv(text);
+      status.textContent = "Updated " + new Date().toLocaleTimeString();
+      render();
+    } catch (err) {
+      renderError(err);
+      status.textContent = "";
+    } finally {
+      refreshBtn.disabled = false;
+    }
+  }
+
+  function parseCsv(text) {
+    const lines = text.trim().split("\n");
+    const headers = lines[0].split(",").map(h => h.trim());
+    return lines.slice(1).filter(l => l.trim().length > 0).map(line => {
+      const cells = line.split(",");
+      const row = {};
+      headers.forEach((h, i) => row[h] = (cells[i] || "").trim());
+      row.quantity = parseFloat(row.quantity);
+      row.price = parseFloat(row.price);
+      row.notional = parseFloat(row.notional);
+      return row;
+    });
+  }
+
+  function renderError(err) {
+    content.innerHTML = `
+      <div class="error-box">
+        <strong>Couldn't load trades.csv.</strong><br>
+        If you're viewing this file directly (file://) instead of through the local
+        server, the browser blocks the fetch. Reload via the http://localhost address.<br>
+        <small>${escapeHtml(err.message)}</small>
+      </div>
+    `;
+  }
+
+  function applyFilters(rows) {
+    return rows.filter(t =>
+      (!filters.ticker || t.ticker === filters.ticker) &&
+      (!filters.side || t.side === filters.side) &&
+      (!filters.desk || t.desk === filters.desk) &&
+      (!filters.trader || t.trader === filters.trader)
+    );
+  }
+
+  function render() {
+    if (trades.length === 0) {
+      content.innerHTML = `<div class="empty-note">No trades found.</div>`;
+      return;
+    }
+
+    const filtered = applyFilters(trades);
+
+    const buyNotional = filtered.filter(t => t.side === "BUY").reduce((s, t) => s + t.notional, 0);
+    const sellNotional = filtered.filter(t => t.side === "SELL").reduce((s, t) => s + t.notional, 0);
+    const net = buyNotional - sellNotional;
+
+    const tickers = [...new Set(trades.map(t => t.ticker))].sort();
+    const sides = [...new Set(trades.map(t => t.side))].sort();
+    const desks = [...new Set(trades.map(t => t.desk))].sort();
+    const traders = [...new Set(trades.map(t => t.trader))].sort();
+
+    // per-instrument breakdown, based on filtered set
+    const byTicker = {};
+    filtered.forEach(t => {
+      if (!byTicker[t.ticker]) byTicker[t.ticker] = { ticker: t.ticker, count: 0, buy: 0, sell: 0 };
+      byTicker[t.ticker].count++;
+      if (t.side === "BUY") byTicker[t.ticker].buy += t.notional;
+      else byTicker[t.ticker].sell += t.notional;
+    });
+    const instrumentRows = Object.values(byTicker).sort((a, b) => (b.buy + b.sell) - (a.buy + a.sell));
+
+    const biggestTrades = [...filtered].sort((a, b) => b.notional - a.notional).slice(0, 10);
+
+    const sorted = [...filtered].sort((a, b) => {
+      let av = a[sortKey], bv = b[sortKey];
+      if (typeof av === "string") { av = av.toLowerCase(); bv = bv.toLowerCase(); }
+      if (av < bv) return -1 * sortDir;
+      if (av > bv) return 1 * sortDir;
+      return 0;
+    });
+
+    const arrow = (key) => key === sortKey ? `<span class="arrow">${sortDir === 1 ? "▲" : "▼"}</span>` : "";
+    const fmt = (n) => n.toLocaleString(undefined, { maximumFractionDigits: 2 });
+    const opt = (val, current) => `<option value="${escapeHtml(val)}" ${val === current ? "selected" : ""}>${escapeHtml(val)}</option>`;
+
+    content.innerHTML = `
+      <div class="summary">
+        <div class="card">
+          <div class="label">Trades</div>
+          <div class="value">${filtered.length}</div>
+        </div>
+        <div class="card">
+          <div class="label">Buy notional</div>
+          <div class="value buy">${fmt(buyNotional)}</div>
+        </div>
+        <div class="card">
+          <div class="label">Sell notional</div>
+          <div class="value sell">${fmt(sellNotional)}</div>
+        </div>
+        <div class="card">
+          <div class="label">Net</div>
+          <div class="value ${net >= 0 ? "net-pos" : "net-neg"}">${net >= 0 ? "+" : ""}${fmt(net)}</div>
+        </div>
+      </div>
+
+      <h2>Per-instrument breakdown</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Ticker</th><th>Trades</th><th>Buy notional</th><th>Sell notional</th><th>Net</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${instrumentRows.map(r => `
+            <tr>
+              <td style="text-align:left">${escapeHtml(r.ticker)}</td>
+              <td>${r.count}</td>
+              <td class="side-buy">${fmt(r.buy)}</td>
+              <td class="side-sell">${fmt(r.sell)}</td>
+              <td class="${r.buy - r.sell >= 0 ? "side-buy" : "side-sell"}">${r.buy - r.sell >= 0 ? "+" : ""}${fmt(r.buy - r.sell)}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+
+      <h2>Biggest trades today</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Ticker</th><th>Side</th><th>Qty</th><th>Price</th><th>Notional</th><th>Desk</th><th>Trader</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${biggestTrades.map(t => `
+            <tr class="${t.hypothetical ? "hypo" : ""}">
+              <td style="text-align:left">${escapeHtml(t.ticker)}${t.hypothetical ? ' <span class="hypo-note">hypo</span>' : ""}</td>
+              <td class="${t.side === "BUY" ? "side-buy" : "side-sell"}" style="text-align:left">${escapeHtml(t.side)}</td>
+              <td>${fmt(t.quantity)}</td>
+              <td>${t.price.toFixed(2)}</td>
+              <td>${fmt(t.notional)}</td>
+              <td style="text-align:left">${escapeHtml(t.desk)}</td>
+              <td style="text-align:left">${escapeHtml(t.trader)}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+
+      <h2>All trades</h2>
+      <div class="filters">
+        <select id="f-ticker"><option value="">All tickers</option>${tickers.map(t => opt(t, filters.ticker)).join("")}</select>
+        <select id="f-side"><option value="">All sides</option>${sides.map(t => opt(t, filters.side)).join("")}</select>
+        <select id="f-desk"><option value="">All desks</option>${desks.map(t => opt(t, filters.desk)).join("")}</select>
+        <select id="f-trader"><option value="">All traders</option>${traders.map(t => opt(t, filters.trader)).join("")}</select>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th data-key="trade_id">ID ${arrow("trade_id")}</th>
+              <th data-key="timestamp" style="text-align:left">Time ${arrow("timestamp")}</th>
+              <th data-key="ticker">Ticker ${arrow("ticker")}</th>
+              <th data-key="side">Side ${arrow("side")}</th>
+              <th data-key="quantity">Qty ${arrow("quantity")}</th>
+              <th data-key="price">Price ${arrow("price")}</th>
+              <th data-key="notional">Notional ${arrow("notional")}</th>
+              <th data-key="desk">Desk ${arrow("desk")}</th>
+              <th data-key="trader">Trader ${arrow("trader")}</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${sorted.map(t => `
+              <tr class="${t.hypothetical ? "hypo" : ""}">
+                <td style="text-align:left">${escapeHtml(t.trade_id)}${t.hypothetical ? ' <span class="hypo-note">hypo</span>' : ""}</td>
+                <td style="text-align:left">${escapeHtml(t.timestamp)}</td>
+                <td style="text-align:left">${escapeHtml(t.ticker)}</td>
+                <td class="${t.side === "BUY" ? "side-buy" : "side-sell"}" style="text-align:left">${escapeHtml(t.side)}</td>
+                <td>${fmt(t.quantity)}</td>
+                <td>${t.price.toFixed(2)}</td>
+                <td>${fmt(t.notional)}</td>
+                <td style="text-align:left">${escapeHtml(t.desk)}</td>
+                <td style="text-align:left">${escapeHtml(t.trader)}</td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      </div>
+    `;
+
+    content.querySelectorAll("th[data-key]").forEach(th => {
+      th.addEventListener("click", () => {
+        const key = th.getAttribute("data-key");
+        if (key === sortKey) sortDir *= -1;
+        else { sortKey = key; sortDir = 1; }
+        render();
+      });
+    });
+
+    document.getElementById("f-ticker").addEventListener("change", e => { filters.ticker = e.target.value; render(); });
+    document.getElementById("f-side").addEventListener("change", e => { filters.side = e.target.value; render(); });
+    document.getElementById("f-desk").addEventListener("change", e => { filters.desk = e.target.value; render(); });
+    document.getElementById("f-trader").addEventListener("change", e => { filters.trader = e.target.value; render(); });
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+</script>
+
+</body>
+</html>

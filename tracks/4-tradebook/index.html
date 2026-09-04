@@ -203,7 +203,7 @@
 <body>
 
 <h1>TRADEBOOK</h1>
-<p class="subtitle">Synthetic trade blotter — data/trades.csv</p>
+<p class="subtitle">Synthetic trade blotter — served from SQLite via /api/trades</p>
 
 <div class="toolbar">
   <button id="refreshBtn">Refresh</button>
@@ -246,7 +246,7 @@
 <div id="content"></div>
 
 <script>
-  const CSV_URL = "data/trades.csv";
+  const API_URL = "/api/trades";
   const content = document.getElementById("content");
   const status = document.getElementById("status");
   const refreshBtn = document.getElementById("refreshBtn");
@@ -296,10 +296,9 @@
     refreshBtn.disabled = true;
     status.textContent = "Loading…";
     try {
-      const res = await fetch(CSV_URL);
-      if (!res.ok) throw new Error("CSV request failed with status " + res.status);
-      const text = await res.text();
-      trades = parseCsv(text);
+      const res = await fetch(API_URL);
+      if (!res.ok) throw new Error("API request failed with status " + res.status);
+      trades = await res.json();
       status.textContent = "Updated " + new Date().toLocaleTimeString();
       render();
     } catch (err) {
@@ -310,26 +309,12 @@
     }
   }
 
-  function parseCsv(text) {
-    const lines = text.trim().split("\n");
-    const headers = lines[0].split(",").map(h => h.trim());
-    return lines.slice(1).filter(l => l.trim().length > 0).map(line => {
-      const cells = line.split(",");
-      const row = {};
-      headers.forEach((h, i) => row[h] = (cells[i] || "").trim());
-      row.quantity = parseFloat(row.quantity);
-      row.price = parseFloat(row.price);
-      row.notional = parseFloat(row.notional);
-      return row;
-    });
-  }
-
   function renderError(err) {
     content.innerHTML = `
       <div class="error-box">
-        <strong>Couldn't load trades.csv.</strong><br>
-        If you're viewing this file directly (file://) instead of through the local
-        server, the browser blocks the fetch. Reload via the http://localhost address.<br>
+        <strong>Couldn't reach the trade data API.</strong><br>
+        This page needs to be served by server.py (not opened as a file, and not
+        served by a plain file server) since /api/trades reads from SQLite.<br>
         <small>${escapeHtml(err.message)}</small>
       </div>
     `;

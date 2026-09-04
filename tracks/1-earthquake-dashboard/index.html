@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Earthquake Dashboard</title>
+<style>
+  :root {
+    color-scheme: light;
+  }
+  body {
+    font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    background: #f4f5f7;
+    color: #1f2430;
+    margin: 0;
+    padding: 24px;
+  }
+  h1 {
+    margin: 0 0 4px 0;
+    font-size: 1.6rem;
+  }
+  .subtitle {
+    color: #666;
+    margin: 0 0 20px 0;
+    font-size: 0.9rem;
+  }
+  .toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #1d4ed8;
+  }
+  button:disabled {
+    background: #93b4f0;
+    cursor: default;
+  }
+  #status {
+    font-size: 0.85rem;
+    color: #666;
+  }
+  .summary {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .card {
+    background: white;
+    border-radius: 10px;
+    padding: 16px 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    min-width: 160px;
+  }
+  .card .label {
+    font-size: 0.8rem;
+    color: #777;
+    margin-bottom: 4px;
+  }
+  .card .value {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+  }
+  th {
+    background: #eef1f6;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+  th:hover {
+    background: #e2e7f0;
+  }
+  th .arrow {
+    opacity: 0.5;
+    margin-left: 4px;
+  }
+  tr:hover td {
+    background: #fafbfd;
+  }
+  tr.mag-low td {
+    background: #eafaf0;
+  }
+  tr.mag-mid td {
+    background: #fff6e0;
+  }
+  tr.mag-high td {
+    background: #fde8e8;
+  }
+  tr.mag-low:hover td {
+    background: #ddf5e6;
+  }
+  tr.mag-mid:hover td {
+    background: #ffefc7;
+  }
+  tr.mag-high:hover td {
+    background: #fbd7d7;
+  }
+  .error-box {
+    background: #fff4f4;
+    border: 1px solid #f3c2c2;
+    color: #8a2c2c;
+    padding: 16px 20px;
+    border-radius: 10px;
+    max-width: 520px;
+  }
+  .empty-note {
+    color: #777;
+    padding: 20px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Earthquake Dashboard</h1>
+<p class="subtitle">Last 24 hours, from the USGS public earthquake feed</p>
+
+<div class="toolbar">
+  <button id="refreshBtn">Refresh</button>
+  <span id="status"></span>
+</div>
+
+<div id="content"></div>
+
+<script>
+  const FEED_URL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson";
+  const content = document.getElementById("content");
+  const status = document.getElementById("status");
+  const refreshBtn = document.getElementById("refreshBtn");
+
+  let quakes = [];
+  let sortKey = "mag";
+  let sortDir = -1; // -1 = descending, 1 = ascending
+
+  refreshBtn.addEventListener("click", loadData);
+  loadData();
+
+  async function loadData() {
+    refreshBtn.disabled = true;
+    status.textContent = "Loading…";
+    try {
+      const res = await fetch(FEED_URL);
+      if (!res.ok) throw new Error("Feed responded with status " + res.status);
+      const data = await res.json();
+      quakes = (data.features || []).map(f => ({
+        place: f.properties.place || "Unknown location",
+        mag: typeof f.properties.mag === "number" ? f.properties.mag : null,
+        time: f.properties.time
+      }));
+      status.textContent = "Updated " + new Date().toLocaleTimeString();
+      render();
+    } catch (err) {
+      renderError(err);
+      status.textContent = "";
+    } finally {
+      refreshBtn.disabled = false;
+    }
+  }
+
+  function renderError(err) {
+    content.innerHTML = `
+      <div class="error-box">
+        <strong>Couldn't reach the USGS feed.</strong><br>
+        This can happen if you're offline or the feed is temporarily down.
+        Try clicking Refresh in a moment.<br>
+        <small>${escapeHtml(err.message)}</small>
+      </div>
+    `;
+  }
+
+  function render() {
+    if (quakes.length === 0) {
+      content.innerHTML = `<div class="empty-note">No earthquakes reported in the last 24 hours.</div>`;
+      return;
+    }
+
+    const known = quakes.filter(q => q.mag !== null);
+    const strongest = known.length
+      ? known.reduce((a, b) => (b.mag > a.mag ? b : a))
+      : null;
+
+    const sorted = [...quakes].sort((a, b) => {
+      let av = a[sortKey];
+      let bv = b[sortKey];
+      if (av === null) av = sortKey === "mag" ? -Infinity : "";
+      if (bv === null) bv = sortKey === "mag" ? -Infinity : "";
+      if (av < bv) return -1 * sortDir;
+      if (av > bv) return 1 * sortDir;
+      return 0;
+    });
+
+    const top = sorted.slice(0, 50);
+
+    const arrow = (key) => key === sortKey ? `<span class="arrow">${sortDir === 1 ? "▲" : "▼"}</span>` : "";
+
+    content.innerHTML = `
+      <div class="summary">
+        <div class="card">
+          <div class="label">Earthquakes (24h)</div>
+          <div class="value">${quakes.length}</div>
+        </div>
+        <div class="card">
+          <div class="label">Strongest magnitude</div>
+          <div class="value">${strongest ? strongest.mag.toFixed(1) : "—"}</div>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th data-key="place">Place ${arrow("place")}</th>
+            <th data-key="mag">Magnitude ${arrow("mag")}</th>
+            <th data-key="time">Time ${arrow("time")}</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${top.map(q => `
+            <tr class="${magClass(q.mag)}">
+              <td>${escapeHtml(q.place)}</td>
+              <td>${q.mag !== null ? q.mag.toFixed(1) : "—"}</td>
+              <td>${new Date(q.time).toLocaleString()}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    `;
+
+    content.querySelectorAll("th[data-key]").forEach(th => {
+      th.addEventListener("click", () => {
+        const key = th.getAttribute("data-key");
+        if (key === sortKey) {
+          sortDir *= -1;
+        } else {
+          sortKey = key;
+          sortDir = -1;
+        }
+        render();
+      });
+    });
+  }
+
+  function magClass(mag) {
+    if (mag === null) return "";
+    if (mag >= 5.0) return "mag-high";
+    if (mag >= 4.0) return "mag-mid";
+    return "mag-low";
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+</script>
+
+</body>
+</html>

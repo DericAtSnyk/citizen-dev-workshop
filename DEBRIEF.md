@@ -3,7 +3,7 @@
 Fill this in when you finish (or when time is called). You can answer right here in this
 file — ask Claude to open it, or just type your answers below each question.
 
-**Your name / team:**
+**Your name / team:** Deric Merino
 
 **Track you picked:**
 

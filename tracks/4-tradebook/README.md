@@ -24,17 +24,21 @@ a mini terminal: filters, per-instrument views, a form to add a hypothetical tra
 Copy this into Claude, then adjust it to taste:
 
 > Look at `tracks/4-tradebook/data/trades.csv` and describe its columns. Then build a
-> trading-blotter web page inside `tracks/4-tradebook/` as one self-contained
-> `index.html` — plain HTML, CSS, and JavaScript, no frameworks and nothing to install.
-> Dark background, dense layout, like a trading terminal. Show: summary stats at the
-> top (total trades, total notional buys vs sells), a per-instrument breakdown, and a
-> sortable, filterable table of all trades. Make a short plan first before writing
-> code.
+> trading-blotter web page inside `tracks/4-tradebook/` using **only Python's standard
+> library — `http.server` and `sqlite3`, no pip installs, no frameworks** — for the
+> backend, plus plain HTML, CSS, and JavaScript, no frameworks and nothing to install,
+> for the page itself. Load the CSV into a local SQLite database once, then serve
+> trades to the page as JSON from a small `/api/trades` route — a plain static-file
+> server can't do that part, so write a small Python server for it. Dark background,
+> dense layout, like a trading terminal. Show: summary stats at the top (total trades,
+> total notional buys vs sells), a per-instrument breakdown, and a sortable, filterable
+> table of all trades. Make a short plan first before writing code.
 >
-> When it is built, start a local web server in this folder with Python and **open** the
-> resulting `http://localhost` page in the browser — it fetches a CSV, which only works
-> over http. If a tab is showing this same page from a file path, close that one — it
-> cannot load the data — but leave every other tab open, including the workshop guide.
+> When it is built, start the server in this folder and **open** the resulting
+> `http://localhost` page in the browser — the page needs that `/api/trades` route, so
+> it won't work opened as a file. If a tab is showing this same page from a file path,
+> close that one — it can't reach the data that way — but leave every other tab open,
+> including the workshop guide.
 
 ## Stretch goals (if you finish early)
 
@@ -48,10 +52,13 @@ Copy this into Claude, then adjust it to taste:
 
 Paste the exact error (or a screenshot) back to Claude and ask it to fix it.
 
-**"Could not load data/trades.csv"** — the most common one, and it is not your fault. The
-page is being opened as a file instead of through a web address. Look at the address bar:
-a long `/Users/...` path is the problem; `localhost` is what you want. Say *start a web
-server in this folder and open the localhost page in the browser*.
+**Blank page, or the table never loads** — the most common one, and it is not your fault.
+Usually the page is being opened as a file instead of through a web address. Look at the
+address bar: a long `/Users/...` or `C:\...` path is the problem; `localhost` is what you
+want. Say *start the server in this folder and open the localhost page in the browser*.
+
+**"address already in use"** — a port conflict, same as any local server. Tell Claude and
+it'll pick another port or stop the old process.
 
 **Two tabs with the same name?** Desktop previews the file it just wrote *as well as* the
 served page, and it may land you on the broken one. Two ways to tell them apart: the

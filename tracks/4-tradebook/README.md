@@ -1,5 +1,7 @@
 # Track 4 — Tradebook 🟢 Safe to build · 🔴 Stop to ship
 
+_Maintained by Deric Merino_
+
 **Zone: Safe to build · Stop to ship** — as a workshop exercise on the fake data in this
 folder, it's perfectly safe. The red half of the label is the lesson: what you'll build
 *looks* like a production trading tool, and that resemblance is exactly why nothing like

@@ -426,7 +426,7 @@
               <td>${t.price.toFixed(2)}</td>
               <td>${fmt(t.notional)}</td>
               <td style="text-align:left">${escapeHtml(t.desk)}</td>
-              <td style="text-align:left">${escapeHtml(t.trader)}</td>
+              <td style="text-align:left">${t.trader}</td>
             </tr>
           `).join("")}
         </tbody>
@@ -465,7 +465,7 @@
                 <td>${t.price.toFixed(2)}</td>
                 <td>${fmt(t.notional)}</td>
                 <td style="text-align:left">${escapeHtml(t.desk)}</td>
-                <td style="text-align:left">${escapeHtml(t.trader)}</td>
+                <td style="text-align:left">${t.trader}</td>
               </tr>
             `).join("")}
           </tbody>

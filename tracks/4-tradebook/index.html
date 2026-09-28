@@ -150,6 +150,16 @@
   }
   .empty-note { color: #5f6c7b; padding: 16px; }
 
+  .shared-note-box {
+    background: #1a2130;
+    border: 1px solid #2a3948;
+    color: #8fb8e8;
+    padding: 8px 14px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+    font-size: 0.78rem;
+  }
+
   .new-trade-form {
     display: flex;
     align-items: flex-end;
@@ -205,6 +215,8 @@
 <h1>TRADEBOOK</h1>
 <p class="subtitle">Synthetic trade blotter — served from SQLite via /api/trades</p>
 
+<div id="sharedNote"></div>
+
 <div class="toolbar">
   <button id="refreshBtn">Refresh</button>
   <span id="status"></span>
@@ -250,6 +262,7 @@
   const content = document.getElementById("content");
   const status = document.getElementById("status");
   const refreshBtn = document.getElementById("refreshBtn");
+  const sharedNote = document.getElementById("sharedNote");
 
   let trades = [];
   let sortKey = "timestamp";
@@ -258,7 +271,16 @@
 
   refreshBtn.addEventListener("click", loadData);
   document.getElementById("newTradeForm").addEventListener("submit", onAddTrade);
+  renderSharedNote();
   loadData();
+
+  // A shared-view link can carry a desk note in the URL, e.g.
+  // ?note=Reconciling+EOD+positions — shown as a banner for whoever opens it.
+  function renderSharedNote() {
+    const note = new URLSearchParams(location.search).get("note");
+    if (!note) return;
+    sharedNote.innerHTML = `<div class="shared-note-box">📌 ${note}</div>`;
+  }
 
   let hypoCount = 0;
 

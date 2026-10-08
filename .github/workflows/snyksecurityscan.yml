@@ -1,146 +1,142 @@
-name: Snyk Security Scan
-
-# Runs Snyk SCA (open source dependencies) and SAST (Snyk Code) scans,
-# fails the build on High or Critical severity issues, and produces
-# SARIF (for GitHub Code Scanning) and HTML reports (as build artifacts).
-#
-# Setup required:
-#   1. In repo Settings > Secrets and variables > Actions, add a secret
-#      named SNYK_TOKEN with your Snyk API token (https://app.snyk.io/account).
-#   2. Adjust the `branches` below to match this repo's workflow.
+# .github/workflows/pipeline.yml
+name: Pipeline
 
 on:
   push:
-    branches: [main]
   pull_request:
-    branches: [main]
-  workflow_dispatch: {}
+  schedule:
+    - cron: "0 6 * * *"   # GitLab schedules live in the UI; adjust as needed
+  workflow_dispatch:
 
 permissions:
   contents: read
-  security-events: write   # required to upload SARIF to GitHub Code Scanning
-  actions: read
 
 jobs:
-  snyk-security-scan:
-    name: Snyk SAST + SCA
+  build-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - run: echo "Hello, ${{ github.actor }}!"
 
-      - name: Set up Node.js (needed to install the Snyk CLI via npm)
-        uses: actions/setup-node@v4
+  test-job1:
+    needs: build-job
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This job tests something"
+
+  test-job2:
+    needs: build-job
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "This job tests something, but takes more time than test-job1."
+          echo "After the echo commands complete, it runs the sleep command for 20 seconds"
+          echo "which simulates a test that runs 20 seconds longer than test-job1"
+          sleep 20
+
+  snyk-security-scan:
+    needs: [test-job1, test-job2]
+    runs-on: ubuntu-latest
+    env:
+      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
 
-      - name: Install Snyk CLI and snyk-to-html
+      - name: Install Snyk tooling
         run: npm install -g snyk snyk-to-html
 
-      # --- SCA (open source dependency) scan ---
-      #- name: Run Snyk Open Source (SCA) test
-      #  id: snyk_sca
-      #  env:
-      #    SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-      #  run: |
-      #    set +e
-      #    snyk test \
-      #      --all-projects \
-      #      --severity-threshold=high \
-      #      --json-file-output=snyk-sca-results.json \
-      #      --sarif-file-output=snyk-sca.sarif
-      #    echo "exit_code=$?" >> "$GITHUB_OUTPUT"
-      #    exit 0   # don't fail the step yet; the gate step at the end decides
-
-      # --- SAST (Snyk Code) scan ---
-      - name: Run Snyk Code (SAST) test
-        id: snyk_code
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      - name: Snyk scans (SCA + Code)
         run: |
           set +e
+
+          # --- SCA (open source dependency) scan ---
+          snyk test \
+            --all-projects \
+            --severity-threshold=high \
+            --json-file-output=snyk-sca-results.json \
+            --sarif-file-output=snyk-sca.sarif
+          SCA_EXIT=$?
+          echo "Snyk SCA exit code: $SCA_EXIT"
+
+          # --- SAST (Snyk Code) scan ---
           snyk code test \
             --severity-threshold=high \
             --json-file-output=snyk-code-results.json \
             --sarif-file-output=snyk-code.sarif
-          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
-          exit 0
+          CODE_EXIT=$?
+          echo "Snyk Code exit code: $CODE_EXIT"
 
-      # --- HTML reports (snyk-to-html reads the JSON produced above) ---
-      #- name: Generate SCA HTML report
-      #  if: always()
-      #  run: |
-      #    if [ -f snyk-sca-results.json ]; then
-      #      snyk-to-html -i snyk-sca-results.json -o snyk-sca-report.html -a
-      #    else
-      #      echo "No SCA JSON output to convert (scan may not have produced results)."
-      #    fi
+          echo "SCA_EXIT=$SCA_EXIT" >> "$GITHUB_ENV"
+          echo "CODE_EXIT=$CODE_EXIT" >> "$GITHUB_ENV"
 
-      - name: Generate SAST HTML report
+      - name: Generate HTML reports
         if: always()
         run: |
+          if [ -f snyk-sca-results.json ]; then
+            snyk-to-html -i snyk-sca-results.json -o snyk-sca-report.html -a
+          else
+            echo "No SCA JSON output to convert (scan may not have produced results)."
+          fi
+
           if [ -f snyk-code-results.json ]; then
             snyk-to-html -i snyk-code-results.json -o snyk-code-report.html -a
           else
             echo "No SAST JSON output to convert (likely no issues were found)."
           fi
 
-      # --- Upload SARIF to GitHub Code Scanning (Security tab) ---
-      #- name: Upload SCA SARIF
-      #  if: always() && hashFiles('snyk-sca.sarif') != ''
-      #  uses: github/codeql-action/upload-sarif@v3
-      #  with:
-      #    sarif_file: snyk-sca.sarif
-      #    category: snyk-sca
-
-      - name: Upload SAST SARIF
-        if: always() && hashFiles('snyk-code.sarif') != ''
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: snyk-code.sarif
-          category: snyk-code
-
-      # --- Keep JSON/SARIF/HTML as downloadable build artifacts ---
-      - name: Upload Snyk reports as workflow artifacts
+      - name: Upload reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: snyk-reports
+          retention-days: 30
+          if-no-files-found: ignore
           path: |
-            #snyk-sca-results.json
+            snyk-sca-results.json
             snyk-code-results.json
-            #snyk-sca.sarif
+            snyk-sca.sarif
             snyk-code.sarif
-            #snyk-sca-report.html
+            snyk-sca-report.html
             snyk-code-report.html
-          if-no-files-found: warn
 
-      # --- Fail-on logic: High and Critical only (threshold already filters this) ---
-      - name: Enforce fail-on-high-or-above
-        if: always()
+      # Optional: GitLab's sast/dependency_scanning report equivalent.
+      # Requires `security-events: write` permission and Code Scanning availability.
+      # - uses: github/codeql-action/upload-sarif@v3
+      #   if: always()
+      #   with:
+      #     sarif_file: snyk-code.sarif
+
+      - name: Fail on High/Critical findings
         run: |
-          #SCA_EXIT="${{ steps.snyk_sca.outputs.exit_code }}"
-          CODE_EXIT="${{ steps.snyk_code.outputs.exit_code }}"
-          #echo "Snyk SCA exit code: $SCA_EXIT"
+          echo "Snyk SCA exit code: $SCA_EXIT"
           echo "Snyk Code exit code: $CODE_EXIT"
-
-          # Snyk CLI exit codes: 0 = no issues, 1 = issues found, 2/3 = scan error.
           FAIL=0
 
-          #if [ "$SCA_EXIT" = "1" ]; then
-          #  echo "::error::Snyk Open Source (SCA) found High/Critical severity vulnerabilities."
-          #  FAIL=1
-          #elif [ "$SCA_EXIT" != "0" ]; then
-          #  echo "::error::Snyk Open Source (SCA) scan failed to run (exit code $SCA_EXIT)."
-          #  FAIL=1
-          #fi
+          if [ "$SCA_EXIT" = "1" ]; then
+            echo "ERROR: Snyk Open Source (SCA) found High/Critical severity vulnerabilities."
+            FAIL=1
+          elif [ "$SCA_EXIT" != "0" ]; then
+            echo "ERROR: Snyk Open Source (SCA) scan failed to run (exit code $SCA_EXIT)."
+            FAIL=1
+          fi
 
           if [ "$CODE_EXIT" = "1" ]; then
-            echo "::error::Snyk Code (SAST) found High/Critical severity issues."
+            echo "ERROR: Snyk Code (SAST) found High/Critical severity issues."
             FAIL=1
           elif [ "$CODE_EXIT" != "0" ]; then
-            echo "::error::Snyk Code (SAST) scan failed to run (exit code $CODE_EXIT)."
+            echo "ERROR: Snyk Code (SAST) scan failed to run (exit code $CODE_EXIT)."
             FAIL=1
           fi
 
           exit $FAIL
+
+  deploy-prod:
+    needs: snyk-security-scan
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - run: echo "This job deploys something from the ${{ github.ref_name }} branch."
+      
